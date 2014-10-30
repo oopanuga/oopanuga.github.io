@@ -1,7 +1,6 @@
 ---
 layout: post
-title: Hello world! 
-javicaria.github.com
+title: Hello world!
 ---
 
 Hi there! 
