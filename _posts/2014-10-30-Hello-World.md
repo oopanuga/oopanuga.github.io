@@ -14,21 +14,20 @@ It´s impressive how Git works, branches, working offline against the local repo
 
 So this new blog uses GitHub as a repository for changes and Git as the system to control everything happening behind the scenes:
 
-----
+****
 I´m writting this page as a regular HTML file in a regular folder of my computer.
----
+
 I can commit any changes I do to this file or any other file.
----
+
 When I´m done, I will push this changes to my blessed repository in GitHub.
----
+
 If I want to work in a set of new posts separated to the main branch, I can create a new branch.
 When I´m ready I can create a merge request to master.
----
-In addition, if somebody wants to collaborate in this blog, write posts, etc, we can do reviews, pull requests, etc.
----
-I will have a local repository of this content locally that will be syncing to GitHub: I can track changes, check the complete history of a file, roll-back to some commit.
----
 
+In addition, if somebody wants to collaborate in this blog, write posts, etc, we can do reviews, pull requests, etc.
+
+I will have a local repository of this content locally that will be syncing to GitHub: I can track changes, check the complete history of a file, roll-back to some commit.
+****
 To sum-up let´s take the full power of Git and GitHub to drive this blog.
 
 ##GitHub Page
