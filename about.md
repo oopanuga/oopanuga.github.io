@@ -14,7 +14,6 @@ I love .Net but I´m trying to make it with JS, everybody deserves an opportunit
 
 I like learning from others, I like sharing what I learn. I started this blog because I miss my Agresso colleagues, talking about code with them. This blog could make it feel closer with them.
 
-*********
 ### More Information
 
 I hope you like the content on this blog. I will talk about my findings, new experiences at work, tools, conferences, workshops,... bearing one thing in mind, always providing my personal opinion.
@@ -25,7 +24,6 @@ Keep in touch!
 
 ![Image description](/images/me.jpg)
 
-********
 ### Contact me
 
 [javicaria@ingenieros.com](mailto:javicaria@ingenieros.com)
