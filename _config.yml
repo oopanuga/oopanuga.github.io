@@ -19,13 +19,13 @@ avatar: https://raw.githubusercontent.com/javicaria/javicaria.github.io/master/i
 footer-links:
   email: javicaria@ingenieros.com
   github: javicaria
-  linkedin: https://www.linkedin.com/pub/juan-vicaria/4b/865/774
+  linkedin: javicaria
   rss: # just type anything here for a working RSS icon, make sure you set the "url" above!
   twitter: javicaria
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
 
 # Your disqus shortname, entering this will enable commenting on posts
-disqus: 
+disqus: javicaria
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics: UA-2110908-1
