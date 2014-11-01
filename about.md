@@ -25,7 +25,7 @@ Keep in touch!
 
 ![Image description](/images/me.jpg)
 
-****************************
+********
 ### Contact me
 
 [javicaria@ingenieros.com](mailto:javicaria@ingenieros.com)
