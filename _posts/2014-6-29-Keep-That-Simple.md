@@ -48,35 +48,35 @@ We are creating a process that runs periodically every day. I was told under cod
 Here is a simplified version of what I did:
 
 ```c#
-    [TestMethod]
-    public void Check_clean_up_after_power_cut()
+[TestMethod]
+public void Check_clean_up_after_power_cut()
+{
+  //Prepare first run, interrupted by power cut
+  bool didPowerFail = false;
+  var powerFailSimulatorToken = new CancellationTokenSource();
+  Task interruptedProcessTask = new Task(() =>
+  {    using (powerFailSimulatorToken.Token.Register(Thread.CurrentThread.Abort))
     {
-      //Prepare first run, interrupted by power cut
-      bool didPowerFail = false;
-      var powerFailSimulatorToken = new CancellationTokenSource();
-      Task interruptedProcessTask = new Task(() =>
-      {    using (powerFailSimulatorToken.Token.Register(Thread.CurrentThread.Abort))
-        {
-               try
-               {
-                  Process.Start();
-               }           catch (ThreadAbortException)
-               {
-                  didPowerFail = true;
-               }
-         }  }, powerFailSimulatorToken.Token);
+           try
+           {
+              Process.Start();
+           }           catch (ThreadAbortException)
+           {
+              didPowerFail = true;
+           }
+     }  }, powerFailSimulatorToken.Token);
 
-      SimulatePowerFailMock(powerFailSimulatorToken);
-     //Trigger first run
-     interruptedProcessTask.Start(); while (!didPowerFail)
-     {     //Still running first process
-     }
+  SimulatePowerFailMock(powerFailSimulatorToken);
+ //Trigger first run
+ interruptedProcessTask.Start(); while (!didPowerFail)
+ {     //Still running first process
+ }
 
-    //Trigger second run of process
-     Process.Start();
+//Trigger second run of process
+ Process.Start();
 
-     Asserts...
-    }
+ Asserts...
+}
 ```
 
 Cool eh?...
@@ -88,16 +88,16 @@ I didn´t have enough knowledge of the domain. I just jump to the code, without 
 Of course, code review came and I did this:
 
 ```c#
-    [TestMethod]
-    public void Check_clean_up_after_power_cut()
-    {
+[TestMethod]
+public void Check_clean_up_after_power_cut()
+{
 
-       //Simulate first interrupted run by inserting corrupted test data
-        SimulatePowerFail(powerFailSimulatorToken);//Trigger second run of process
-        Process.Start();
+   //Simulate first interrupted run by inserting corrupted test data
+    SimulatePowerFail(powerFailSimulatorToken);//Trigger second run of process
+    Process.Start();
 
-        Asserts...
-    }
+    Asserts...
+}
 ```
 
 Yes, it´s simpler, but isn´t this better?
