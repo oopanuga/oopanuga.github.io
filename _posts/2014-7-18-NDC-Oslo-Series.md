@@ -5,7 +5,7 @@ title: NDC Oslo 2014 Series
 
 Hi there!
 
-Last June 2014 I had the pleassure to assist to *Norwegian Developers Conference* (NDC). It was held in Oslo Spektrum, 2-6 June.
+Last June 2014 I had the pleassure to assist to **Norwegian Developers Conference** (NDC). It was held in Oslo Spektrum, 2-6 June.
 This conference is one of the things you shouldn´t miss if you like programming, design, technology, agile methodologies and much more.
 Oslo Spektrum is the perfect scenario with a big large hall full of stands with lots of mainstream brands, a big stage with music, one book shop, entertainment and good food.
 
