@@ -47,7 +47,7 @@ We are creating a process that runs periodically every day. I was told under cod
 *Ouch, that is difficult, how do I simulate a power cut in a test and later on assert that a subsequent run was ok, inside a single test...* *Parallel tasks* was my first thought. I had been reading about CS5 new parallel programming features, I wanted to proof I knew it.
 Here is a simplified version of what I did:
 
-{{ "{% highlight c# " }}%}
+{% highlight c# %}
 [TestMethod]
 public void Check_clean_up_after_power_cut()
 {
@@ -76,8 +76,7 @@ public void Check_clean_up_after_power_cut()
  Process.Start();
 
  Asserts...
-}
-{{ "{% endhighlight " }}%}
+}{% endhighlight %}
 
 Cool eh?...
 
@@ -87,7 +86,7 @@ Yes, this test is ugly, hard to read, fragile, hard to refactor and very likely 
 I didn´t have enough knowledge of the domain. I just jump to the code, without taking my time to analyse the system. I just wanted to prove that I can do complex stuff.
 Of course, code review came and I did this:
 
-{{ "{% highlight c# " }}%}
+{% highlight c# %}
 [TestMethod]
 public void Check_clean_up_after_power_cut()
 {
@@ -97,8 +96,7 @@ public void Check_clean_up_after_power_cut()
     Process.Start();
 
     Asserts...
-}
-{{ "{% endhighlight " }}%}
+}{% endhighlight %}
 
 Yes, it´s simpler, but isn´t this better?
 
