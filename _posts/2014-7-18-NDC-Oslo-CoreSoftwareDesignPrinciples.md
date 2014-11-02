@@ -1,21 +1,21 @@
 
-NDC 2014 Oslo: Core software design principles (DRY, YAGNI and SRP+SLAP)
+---
+layout: post
+title: NDC 2014 Oslo: Core software design principles (DRY, YAGNI and SRP+SLAP)
+---
 
+So here we go with one of the greatest talks I went in the conference: *Core Software Design Principles by Venkat Subramaniam*.
 
-So here we go with one of the greatest talks I went in the conference: Core Software Design Principles by Venkat Subramaniam.
-
-
-
+![Image description](/images/ndc/venkat.jpg)
 
 I didn´t know Venkat before the conference (you can blame me) and everybody told me he was a good speaker. I went and it was a lot more than what I expected.
-If you want to know more about Venkat I think one of the best ways would be to go reading one of his books:
-http://www.amazon.com/Venkat-Subramaniam/e/B001JOS4R2
+If you want to know more about Venkat I think one of the best ways would be to go reading one of his [books](http://www.amazon.com/Venkat-Subramaniam/e/B001JOS4R2).
 
-I went also to his talk Transforming C# into functional programming, samely awesome.
+I went also to his talk *Transforming C# into functional programming*, samely awesome.
 
-Today I wanted to share with you the highlights of his talk Core Sofware Design Principles, cause it turned out to be the clearest explanation of SOLID and many other principles I´ve ever received.
+Today I wanted to share with you the highlights of his talk *Core Sofware Design Principles*, because it turned out to be the clearest explanation of *SOLID* and many other principles I´ve ever received.
 I wish I could explain it as good as he did.
-Maybe you are thinking "I know SOLID, leave me alone". Well, I thought I kew but... what about Liskov substitution (its name doesn´t give it any favour)? Do you know YAGNI, DRY?
+Maybe you are thinking _I know SOLID, leave me alone". Well, I thought I kew but... what about Liskov substitution (its name doesn´t give it any favour)? Do you know YAGNI, DRY?_
 
 If you have been reading about design patterns, code, principles, you´ll probably notice that one of the cornerstones is Simplicity. No matter what you read, simplicity is always the goal. Here you can find a few hints about it: http://codexfun.blogspot.com.es/2014/06/keep-that-simple.html
 
