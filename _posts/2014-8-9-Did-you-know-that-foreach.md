@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Did you know that...? CSharp´s foreach
