@@ -66,10 +66,10 @@ Question is:
 
 ![Image description](/images/ndc/YAGNI.jpg)
 
-_Somebody already invented a lips painting mask, just in case. I don´t think it even works but any girl in the room would better tell_
+_For example, someone has already invented a mask to make applying lipstick easier, but I'm sure if this will ever be needed_
 
 Apparently this principle makes Venkat´s mates angry: 
-> "They took a lot of time to make that generic superb cool class, you better use it!"
+> They took a lot of time to make that generic superb cool class, you better use it!
 
 Venkat usually rephrases this principle as: 
 > You Ain´t Gonna Need It.... Yet!
