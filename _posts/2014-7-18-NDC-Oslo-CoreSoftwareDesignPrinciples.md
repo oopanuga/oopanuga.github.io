@@ -97,7 +97,8 @@ Maybe you have experience the following disgusting situation:
 
 One of the best known, in my opinion because of its simple meaningful name, or not? :)
 
-This principle is about **Cohesion**: 
+This principle is about **Cohesion**:
+
 > Things that go together must belong together. If not, they should go separate.
 
 We all have been students and sometimes we didn´t have time to tidy up our room, not gonna blame you if this was your _clothes box_:
@@ -139,15 +140,16 @@ Venkat took quite a bit of time to explain this.
 
 Long methods are a bad idea because:
 
-	- They are **hard to read**.
+	- They are hard to read.
 
-	- **Hard to test**.
+	- Hard to test.
 
-	- **Hard to reuse**: how do you reuse a monsterous method when you need that 10 lines of code in the middle? You can´t and it leads to dupplication of these 10 lines.
+	- Hard to reuse: how do you reuse a monsterous method when you need that 10 lines of code in the middle? You can´t and it leads to dupplication of these 10 lines.
 
-	- **Hard to maintain, modify and eventually remove if some piece of the method changes**.
+	- Hard to maintain, modify and eventually remove if some piece of the method changes.
 
 Please spread this idea:
+
 > Don´t write long methods. 
 
 It´s a simple thing to avoid and it leads to a great benefit.
@@ -160,7 +162,7 @@ Instead of trying to put a number or a size, Venkat gave an example similar to t
 Remember this Kid A mate that is new in your company. Everybody says he writes long methods. You want to check...
 
 
-	- _How was your weekend Kid A?_
+	-_How was your weekend Kid A?_
 
 	- _At 19.00 on Saturday I took my car, drive to Albert Hall using Ring3, arrived to a concert by Radiohead, it was great, they played the full album called as me, Johny Greenwood did a mistake in a song, I drank 6 beers and a few shots so I had to sleep in a park and I couldn´t speak to that girl I like, so on Sunday I had a huge handover..._
 	Ten minutes later...
