@@ -199,21 +199,21 @@ If José González wrote a method about his weekend he would probably write:
 {% highlight c# %}
 public Weekend How_was_your_weekend()
 {
-var weekend = new Weekend();
-
-weekend.Saturday = Played_in_concert();
-weekend.Sunday = Went_to_the_park();
-
-return weekend;
+   var weekend = new Weekend();
+   
+   weekend.Saturday = Played_in_concert();
+   weekend.Sunday = Went_to_the_park();
+   
+   return weekend;
 }
 private Saturday Played_in_concert()
 {
-return new Concert()
-{
-	Time = When_was_it()
-	Songs = Which_songs_did_you_play()
-	Duration = Duration()
-};
+  return new Concert()
+  {
+  	Time = When_was_it(),
+  	Songs = Which_songs_did_you_play(),
+  	Duration = Duration()
+  };
 }
 //Samely for Sunday
 {% endhighlight %}
