@@ -159,31 +159,28 @@ Instead of trying to put a number or a size, Venkat gave an example similar to t
 
 Remember this Kid A mate that is new in your company. Everybody says he writes long methods. You want to check...
 
-```
-	- How was your weekend Kid A?
 
-	- At 19.00 on Saturday I took my car, drive to Albert Hall using Ring3, arrived to a concert by Radiohead, it was great, they played the full album called as me, Johny Greenwood did a mistake in a song, I drank 6 beers and a few shots so I had to sleep in a park and I couldn´t speak to that girl I like, so on Sunday I had a huge handover....
+	- _How was your weekend Kid A?_
+
+	- _At 19.00 on Saturday I took my car, drive to Albert Hall using Ring3, arrived to a concert by Radiohead, it was great, they played the full album called as me, Johny Greenwood did a mistake in a song, I drank 6 beers and a few shots so I had to sleep in a park and I couldn´t speak to that girl I like, so on Sunday I had a huge handover..._
 	Ten minutes later...
 
-	- Ouch, please stop, TMI. 
+	- _Ouch, please stop, TMI_. 
 
-	- Oh, you told me how was my weekend, what´s up?
+	- _Oh, you told me how was my weekend, what´s up?_
 
-	- Yeah right, I thought you could explain me how was your weekend without doing the same you do in code. You are the guy that writes long methods, aren´t you?
-```
+	- _Yeah right, I thought you could explain me how was your weekend without doing the same you do in code. You are the guy that writes long methods, aren´t you?_
 
 His answer was too long, he of course violated SRP. We don´t speak to people like this.
 We will usually prefer to speak to colleagues like this:
 
-```
-	- Hi Jose Gonzalez, how was your weekend?
+	- _Hi Jose Gonzalez, how was your weekend?_
 
-	- Well, on Saturday I played in a concert, on Sunday I went to the park.
+	- _Well, on Saturday I played in a concert, on Sunday I went to the park._
 
-	- Wow a concert! How was that?
+	- _Wow a concert! How was that?_
 
-	- It was great, people liked my new album.
-```
+	- _It was great, people liked my new album_.
 
 Jose Gonzalez is a SRP guy. He explains in high level of concepts. When we wanted more info about a certain concept, because we prefer music, we follow and ask about his concert.
 Maybe another colleague more interested in parks will come and ask Jose about it with more detail.
