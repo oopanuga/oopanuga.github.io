@@ -27,8 +27,8 @@ The compiler will convert the former foreach into the previous enumeration using
 
 ## There's more...
 
-We normally will make use of the generic counterparts, **IEnumerator<T>** and **IEnumerable<T>**.
-One of the main advantages of using the generic version is that IEnumerator<T> inherits from *IDisposable*. This allows us to have a collection on which every element can be disposed, like a database connection.
+We normally will make use of the generic counterparts, IEnumerator<T> and IEnumerable<T>.
+One of the main advantages of using the generic version is that IEnumerator<T> inherits from **IDisposable**. This allows us to have a collection on which every element can be disposed, like a database connection.
 
 So let's go to the point of this post. Let's see real magic in action.
 
