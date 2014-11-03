@@ -43,12 +43,10 @@ So let get this party started!
 
 > Every knowledge in a system must have a single authorative unambigous representation
 
-When we try to follow this principle we must ask the following: 
-```
-Where is this piece of knowledge in my code?
-```
+When we try to follow this principle we must ask the following: _Where is this piece of knowledge in my code?_
 
 ![Image description](/images/ndc/Multiple player same guitar.jpg)
+
 _Who´s playing the guitar? What if we have a bug in the guitar, where do we solve it?_
 
 Imagine we have a system that creates Requisitions. What if in the future we have to change this knowledge to create requistions? If we spread this logic into several places in the code, we would have to change all of these places, making a dupplication effort. And when bugs arise we would have to fix it in multiple places.
@@ -62,10 +60,12 @@ Imagine we have a web application with several pages. In several of these web pa
 > Something we are coding now, later may not be required at all.
 
 When we are designing a system from scratch we put a lot of different things in place: validations, new data types, generics for better reuse, extensibility mechanism,...
-Question is: 
+Question is:
+
 > Do you really need it? If No, we should postpone the decision until we know it better.
 
-![Image description](/images/ndc/Multiple player same guitar.jpg)
+![Image description](/images/ndc/YAGNI.jpg)
+
 _Somebody already invented a lips painting mask, just in case. I don´t think it even works but any girl in the room would better tell_
 
 Apparently this principle makes Venkat´s mates angry: 
