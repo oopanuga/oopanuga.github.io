@@ -1,11 +1,11 @@
 ---
 layout: post
-title: NDC 2014 Oslo: Core software design principles, DRY, YAGNI and SRP/SLAP
+title: NDC 2014 Oslo, Core software design principles, DRY, YAGNI and SRP/SLAP
 ---
 
 So here we go with one of the greatest talks I went in the conference: **Core Software Design Principles by Venkat Subramaniam**.
 
-![Image description](/images/ndc/venkat.jpg)
+![Image description](/images/ndc/venkat.JPG)
 
 I didn´t know Venkat before the conference (you can blame me) and everybody told me he was a good speaker. I went and it was a lot more than what I expected.
 If you want to know more about Venkat I think one of the best ways would be to go reading one of his [books](http://www.amazon.com/Venkat-Subramaniam/e/B001JOS4R2).
