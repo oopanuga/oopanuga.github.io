@@ -188,7 +188,10 @@ So please keep this:
 
 > We must mention things in one level of abstraction at a time.
 
-This is the so called **SLAP principle**, **Single Level of Abstraction**. It is also called **Compose Method**:
+This is the so called **SLAP principle**, **Single Level of Abstraction**.
+
+It is also called **Compose Method**:
+
 > A method should nicely compose things at a single level of abstraction. If you need more info about a certain abstraction you can go to that method and see the next level of abstraction.
 
 If José González wrote a method about his weekend he would probably write:
@@ -196,24 +199,22 @@ If José González wrote a method about his weekend he would probably write:
 {% highlight c# %}
 public Weekend How_was_your_weekend()
 {
-	var weekend = new Weekend();
+var weekend = new Weekend();
 
-	weekend.Saturday = Played_in_concert();
-	weekend.Sunday = Went_to_the_park();
+weekend.Saturday = Played_in_concert();
+weekend.Sunday = Went_to_the_park();
 
-	return weekend;
+return weekend;
 }
-
 private Saturday Played_in_concert()
 {
-	return new Concert()
-	{
-		Time = When_was_it()
-		Songs = Which_songs_did_you_play()
-		Duration = Duration()
-	};
+return new Concert()
+{
+	Time = When_was_it()
+	Songs = Which_songs_did_you_play()
+	Duration = Duration()
+};
 }
-
 //Samely for Sunday
 {% endhighlight %}
 
