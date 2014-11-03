@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Did you know that...? CSharp´s foreach
+title: Did you know that... CSharp´s foreach
 ---
 
 **IEnumerator** is a simple interface that defines a basic low level protocol to traverse a collection in a forward-only manner. The protocol is so simple:
