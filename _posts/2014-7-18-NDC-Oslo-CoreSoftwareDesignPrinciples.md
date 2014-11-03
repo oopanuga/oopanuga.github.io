@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: NDC 2014 Oslo: Core software design principles (DRY, YAGNI and SRP+SLAP)
