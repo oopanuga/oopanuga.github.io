@@ -162,16 +162,13 @@ Instead of trying to put a number or a size, Venkat gave an example similar to t
 Remember this Kid A mate that is new in your company. Everybody says he writes long methods. You want to check...
 
 
-	-_How was your weekend Kid A?_
-
-	- _At 19.00 on Saturday I took my car, drive to Albert Hall using Ring3, arrived to a concert by Radiohead, it was great, they played the full album called as me, Johny Greenwood did a mistake in a song, I drank 6 beers and a few shots so I had to sleep in a park and I couldn´t speak to that girl I like, so on Sunday I had a huge handover..._
+	-How was your weekend Kid A?
+	-At 19.00 on Saturday I took my car, drive to Albert Hall using Ring3, arrived to a concert by Radiohead, it was great, they played the full album called as me, Johny Greenwood did a mistake in a song, I drank 6 beers and a few shots so I had to sleep in a park and I couldn´t speak to that girl I like, so on Sunday I had a huge handover..._
 	Ten minutes later...
 
-	- _Ouch, please stop, TMI_. 
-
-	- _Oh, you told me how was my weekend, what´s up?_
-
-	- _Yeah right, I thought you could explain me how was your weekend without doing the same you do in code. You are the guy that writes long methods, aren´t you?_
+	-Ouch, please stop, TMI.
+	-Oh, you told me how was my weekend, what´s up?
+	- Yeah right, I thought you could explain me how was your weekend without doing the same you do in code. You are the guy that writes long methods, aren´t you?
 
 His answer was too long, he of course violated SRP. We don´t speak to people like this.
 We will usually prefer to speak to colleagues like this:
