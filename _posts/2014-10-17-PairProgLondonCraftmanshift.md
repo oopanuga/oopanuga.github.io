@@ -62,7 +62,7 @@ If use complex when simple is feasable, the algorithm gets more complex.
 
 When I saw that I remember that according to TDD you write the minimun code that make a test to pass. Sandro´s workshop fits {% endhighlight %}
 
-## _Be the best pair you can be!_ by David Morgantini
+## _Be the best pair you can be!_, by David Morgantini
 
 David is a software developer with a unique experience: he is married to a girl who did a PhD thesis about Pair Programming. When she was writing it, he had to read it, sometimes :)
 He did took the practical essences of it. 
