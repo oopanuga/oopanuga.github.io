@@ -22,8 +22,11 @@ It was great to assist to this talk. Paul is a tester who used to be a programme
 According to Paul, the old testing way won´t work any more. He is writing a book about that. you can download the [paper](http://dev.sp.qa/download/newModel/NMIntro) and give Paul feedback.
 
 Bassically the old testing way won´t work because our system are changing:
+
 - InternetOfThings is here,
+
 - We have million of devices and it will get humungous in some years
+
 - We´ll have internet everywhere and testers won´t be able to test the same way.
 
 ### Key take aways:
@@ -50,17 +53,16 @@ Bassically the old testing way won´t work because our system are changing:
 
 ## Quick exercise, Do simple constraints when creating and algorithm, by Sandro Mancuso
 
-```
+{% highlight %}
 It was really impressing to see Sandro in action. He implemented an algorithm to calculate the Romans numbers based on a decimal input. He followed TDD sistematically from the beginning, it has the type of "wow" effect that I always feel when somebody is doing TDD. He also used sublime together with some plugin to run from Jasmine tests (impresing to see it).
 
 I´ll try to reproduce the exercise he did but this is the key take away:
 When doing an algorithm, enforce simple constraints in the beginning. By trying to use simple constraints along the way (like if), then use more complex if needed (like exceptions treatment).
 If use complex when simple is feasable, the algorithm gets more complex.
 
-When I saw that I remember that according to TDD you write the minimun code that make a test to pass. Sandro´s workshop fits perfectly with that: writing minimun code= writing simple constraints to make a test passing.
-```
+When I saw that I remember that according to TDD you write the minimun code that make a test to pass. Sandro´s workshop fits {% endhighlight %}
 
-### _Be the best pair you can be!_ by David Morgantini
+## _Be the best pair you can be!_ by David Morgantini
 
 David is a software developer with a unique experience: he is married to a girl who did a PhD thesis about Pair Programming. When she was writing it, he had to read it, sometimes :)
 He did took the practical essences of it. 
