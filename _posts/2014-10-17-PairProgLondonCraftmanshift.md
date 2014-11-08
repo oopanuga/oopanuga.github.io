@@ -62,7 +62,7 @@ If use complex when simple is feasable, the algorithm gets more complex.
 
 When I saw that I remember that according to TDD you write the minimun code that make a test to pass. Sandro´s workshop fits {% endhighlight %}
 
-## _Be the best pair you can be!_, by David Morgantini
+## _Be the best pair you can be!_ by David Morgantini
 
 David is a software developer with a unique experience: he is married to a girl who did a PhD thesis about Pair Programming. When she was writing it, he had to read it, sometimes :)
 He did took the practical essences of it. 
@@ -133,7 +133,7 @@ Novice: _I don't want to look as a stupid_.
 - E: Let some time alone for novice to consider solutions alone, before doing the pairing.
 - N: stop if you don't know what´s going on, ask questions!
 - E: Should Encourage the novice to drive!
-		Establish context before you start: expert explaining the problem before starting!!
+	Establish context before you start: expert explaining the problem before starting!!
 
 Keep coding!!
 
