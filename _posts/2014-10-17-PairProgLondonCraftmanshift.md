@@ -53,14 +53,13 @@ Bassically the old testing way won´t work because our system are changing:
 
 ## Quick exercise, Do simple constraints when creating and algorithm, by Sandro Mancuso
 
-{% highlight %}
 It was really impressing to see Sandro in action. He implemented an algorithm to calculate the Romans numbers based on a decimal input. He followed TDD sistematically from the beginning, it has the type of "wow" effect that I always feel when somebody is doing TDD. He also used sublime together with some plugin to run from Jasmine tests (impresing to see it).
 
 I´ll try to reproduce the exercise he did but this is the key take away:
 When doing an algorithm, enforce simple constraints in the beginning. By trying to use simple constraints along the way (like if), then use more complex if needed (like exceptions treatment).
 If use complex when simple is feasable, the algorithm gets more complex.
 
-When I saw that I remember that according to TDD you write the minimun code that make a test to pass. Sandro´s workshop fits {% endhighlight %}
+When I saw that I remember that according to TDD you write the minimun code that make a test to pass. Sandro´s workshop fits to this.
 
 ## _Be the best pair you can be!_ by David Morgantini
 
