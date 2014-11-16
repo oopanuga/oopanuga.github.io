@@ -2,7 +2,6 @@
 layout: post
 title: Global day of Coderetreat
 ---
-
 Hi there!
 
 Yesterday I participated in the *Global Day of Coderetreat*. It was hosted by the London Software Craftsmanship Community.
