@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title: Global day of Coderetreat
 ---
