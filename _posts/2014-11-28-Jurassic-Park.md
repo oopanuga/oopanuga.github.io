@@ -9,7 +9,7 @@ Devs in the Ditch is a community here in London, sponsored by 7digital company.
 Yesterday they carried out a workshop with a very strange name: Jurassic Park: What went wrong?
 
 The title drew my attention and I decided to go.
-The goal was to apply something called *Root cause analysis* to the issues that happened in 1993 and lead to a total chaos in Jurassic Park. The workshop was so much fun and also I could take some very good lessons (at least how to avoid problems if a open a Dinosaur park).
+The goal was to apply something called *Root cause analysis* to the issues that happened in 1993 and lead to a total chaos in Jurassic Park. The workshop was so much fun and also I could take some very good lessons (at least how to avoid problems if I open a Dinosaur park).
 
 Root cause analysis the typical name that when I read it, I always skip because it looks like some management/mba stuff.
 It turned to be a great tool of problem solving.
@@ -26,17 +26,21 @@ Watch [wikipedia](http://en.wikipedia.org/wiki/Root_cause_analysis) for a longer
 
 ## Jurassic Park, what went wrong?
 
-The talk started by watching a number of fragments from the movie. We could see how the scientists don´t like the project when they explain it to them, how the Park keeper is attacked by a velociraptor, the software developer dissables the security system, how the lawyer is taken by a T-rex,...
+The talk started by watching a number of fragments from the movie. We could see how the scientists don´t like the Jurassic park project when the Product Owner explain it to them, how the Park keeper is attacked by a velociraptor, how the software developer dissables the security system, how the stakeholder is taken by a T-rex,...
 
-Normally time is a limiting factor so we took the main issues, bassically some person is eaten.
-TRex ate a lawer, Velociraptor ate a park keeper, Velociraptor eats a mathematician,...
-In this case we took the following because he was the only person that didn´t belong to the company:
+Normally time is a limiting factor so we took the main issues, in this case _some person is eaten by a dinosaur_:
+- TRex ate a lawer
+- Velociraptor ate a park keeper
+- Velociraptor eats a mathematician.
+
+Specifically we took:
 
 > TRex eats a lawyer, Donald Gennaro.
 
+It was because he was the only person that didn´t belong to the company
 ## Jurassic Park, why Donald Gennaro is eaten by a Tyrannosaurus?
 
-Donal Gennaro represents the investors of the park. He wants to check what these scientists are doing there and the safety of the park.
+Donald Gennaro represents the investors of the park. He wants to check what these scientists are doing there and the safety of the park.
 
 Let´s see how he dies:
 
@@ -44,9 +48,9 @@ Let´s see how he dies:
 
 It all starts with a park drive, he goes to visit it with the other visitors, separate cars.
 
-On the program tour Gennaro rides in the same car as CEO grand kids Lex and Tim Murphy. They have a show where they're suppose to see a T. rex eating a goat, but the Tyrannosaurus doesn't appear at all.
+On the program tour Gennaro rides in the same car as the CEO's grand kids Lex and Tim Murphy. They have a show where they're suppose to see a T. rex eating a goat, but the Tyrannosaurus doesn't appear at all.
 
-With a storm coming the group headed back in the cars to the Visitor Center but the power was shut off by the Software developer and the cars stopped in front of the Tyrannosaurus Paddock where Gennaro, Lex, and Tim watched in horror as the T. rex ate the goat it was supposed to eat earlier. 
+With a storm coming, the group headed back in the cars to the Visitor Center but the power was shut off by the Software developer and the cars stopped in front of the Tyrannosaurus Paddock where Gennaro, Lex, and Tim watched in horror as the T. rex ate the goat it was supposed to eat earlier. 
 
 Gennaro runs out of the car and into a bathroom nearby and sits frightfully on a toilet. 
 
@@ -78,6 +82,8 @@ We iterate though every reason and every why until we find an end point.
 We got to something like this:
 
 ![Image description](/images/JurassicPark/2.JPG)
+
+The following picture is not very good quality but we can see the different branches starting in one cause and letting to different whys:
 
 ![Image description](/images/JurassicPark/3.jpg)
 
