@@ -37,7 +37,8 @@ Specifically we took:
 
 > TRex eats a lawyer, Donald Gennaro.
 
-It was because he was the only person that didn´t belong to the company
+It was because he was the only person that didn´t belong to the company.
+
 ## Jurassic Park, why Donald Gennaro is eaten by a Tyrannosaurus?
 
 Donald Gennaro represents the investors of the park. He wants to check what these scientists are doing there and the safety of the park.
