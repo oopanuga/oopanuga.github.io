@@ -77,7 +77,7 @@ And so on...
 We iterate though every reason and every why until we find an end point.
 We got to something like this:
 
-![Image description](/images/JurassicPark/2.jpg)
+![Image description](/images/JurassicPark/2.JPG)
 
 ![Image description](/images/JurassicPark/3.jpg)
 
