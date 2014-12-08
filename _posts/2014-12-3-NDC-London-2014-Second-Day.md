@@ -40,11 +40,11 @@ All of these problems are removed with Web Components.
 #### Templates: Inert, reusable markup
 
 Poor man's template. 
-- <template>: everything inside here won´t do anything, until clone to be used in the page.
+- `<template>`: everything inside here won´t do anything, until clone to be used in the page.
 
 #### Custom Elements: Define our own Elements
 
-'<pluralsight-tab>': everything with a dash will be a custom element.
+`<pluralsight-tab>`: everything with a dash will be a custom element.
 
 You can take regular html elements and extend then to make better functionality
 
