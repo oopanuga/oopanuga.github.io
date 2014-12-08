@@ -39,8 +39,9 @@ All of these problems are removed with Web Components.
 
 #### Templates: Inert, reusable markup
 
-Poor man's template. 
-- `<template>`: everything inside here won´t do anything, until clone to be used in the page.
+Poor man's template:
+
+`<template>`: everything inside here won´t do anything, until clone to be used in the page.
 
 #### Custom Elements: Define our own Elements
 
@@ -275,7 +276,7 @@ To apply Hypermedia we can use different media types:
 
 - Custom type: by using the tag Content-type.
 
--JSON-LD: Mecanism to expose hypermedia through JSON.
+- JSON-LD: Mecanism to expose hypermedia through JSON.
 
 Hypermedia is great because we push the state from the server to the client, the api is easier and with let´s bugs, the server doesn´t have to maintain state for every client.
 
