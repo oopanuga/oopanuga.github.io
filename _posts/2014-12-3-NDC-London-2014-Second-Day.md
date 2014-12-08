@@ -44,7 +44,7 @@ Poor man's template.
 
 #### Custom Elements: Define our own Elements
 
-<pluralsight-tab>: everything with a dash will be a custom element.
+'<pluralsight-tab>': everything with a dash will be a custom element.
 
 You can take regular html elements and extend then to make better functionality
 
