@@ -39,28 +39,28 @@ You have probably already thought: _This is hard and tedious._ or _This will mak
 
 Of course they are difficult rules to meet, but as any other discipline it involves practice. The benefits are such that we should really try to meet them.
 
-1. Imagine that everybody in your team use TDD and follow those rules. If we pick anybody, it doesn´t matter who, her/his code was working a minute ago (or even less). Isn´t this great? 
+- Imagine that everybody in your team use TDD and follow those rules. If we pick anybody, it doesn´t matter who, her/his code was working a minute ago (or even less). Isn´t this great? 
 
 > All the code was working a minute ago.
 
-2. No debugging required. Who likes debugging? People with those shortkeys, masters of debugging, with their watches and their conditional break points. 
++ No debugging required. Who likes debugging? People with those shortkeys, masters of debugging, with their watches and their conditional break points. 
 
 > Do you want your kids to be _debuggers_ when they grow up?
 
-3. We nowadays use third party packages. What we normally do is search in Google, sometimes we read the documentation. But...
+- We nowadays use third party packages. What we normally do is search in Google, sometimes we read the documentation. But...
 
 > Tests are the best documentation, because they are described with programmers´ natural language, code.
 
 If we need to create an object, we can go to an existing test an see what parameters should be provided. Tests are living examples of how to use the code.
 
-4. TDD makes it easier to write code that meets design principles. 
++ TDD makes it easier to write code that meets design principles. 
 We know how difficult it is sometimes to write tests for an existing code. You couldn´t test that private method, that huge private method that is doing too many things.
 
-With those Three rules are code will be testable by definition, testable is decoupled:
+With those Three rules our code will be testable by definition, testable means decoupled:
 
 > In order to test that piece, it need to be decoupled. TDD forces you to write simpler, less coupled designs.
 
-5. Everybody likes Continuous test environments. And the reason for that is because we need to touch code.
+- Everybody likes Continuous test environments. And the reason for that is because we need to touch code.
 When we have a bank of unit tests running around a piece of code we feel confident to touch it.
 
 In some companies people don´t like TDD, ok, but have you ever been to a company that doesn´t have Unit Tests?
@@ -77,7 +77,7 @@ Let me rephrase this: _We don´t care if 40% of the code is not working_.
 What are the figures we reach if we do TDD? 100%?
 
 And it goes worse...
-How does it feel when you know that those tests that were written after the code, are now failing because of your changes? You go and read those failing tests and it doesn´t make any sense, you don´t understand what´s going on. Because of those tests were merely written to pass a code review, they are sticked to the implementation, they aren´t readable at all, they are difficult to maintain.
+How does it feel when you know that those tests that were written after the code, are now failing because of your changes? You go and read those failing tests and it doesn´t make any sense, you don´t understand what´s going on. Because those tests were merely written to pass a code review, they are sticked to the implementation, they aren´t readable at all, they are difficult to maintain.
 So remember this:
 
 > A bad Unit Test is worse than No Test.
@@ -96,13 +96,13 @@ Still you can try to move as much as possible of the code out of the User Interf
 
 ## Software Development is a Discipline
 
-Imagine you have I give you a pen drive with a source code. Imagine you can tweak one single bit and change it to a different value. The program would probably stop working.
+Imagine I give you a pen drive with a source code. Imagine you can tweak one single bit and change it to a different value. The program would probably stop working.
 
 Bridges and buildings are made to prevent that kind of problems, they have for example double pillars so if one fails the other just covers it. Can you imagine another business that has the same challenge we have?
 
-Accounters. If the fail one single digit in one of the transactions, the company can bankrupt. So they have something called *Double entry booking*. It is a methodology invented centuries ago. Even experienced accounters always follow that, no doubt. They even go to prison if they don´t follow that discipline.
+Accounters. If they fail one single digit in one of the transactions, the company can bankrupt. So they have something called *Double entry booking*. It is a methodology invented centuries ago. Even experienced accounters always follow that, no doubt. They even go to prison if they don´t follow that discipline.
 
-Software Development is a discipline and as such it has methodologies. TDD is one of them and we don´t follow it sometimes.
+> Software Development is a discipline and as such it has methodologies. TDD is one of them and we don´t follow it sometimes.
 We treat our code with less care than accounters treat their transactions.
 
 ## TDD in a large Existing code base
@@ -112,7 +112,7 @@ Bob so clear in his answer:
 
 > You can´t do TDD for legacy code. 
 
-Legacy code normally doesn´t have much unit tests, it wasn´t design to be testable. It is full of large methods and classes very difficult to test. Bob recommended the book, _Working effectively with legacy code_. In that book Michael Feathers suggests that we eventually will find that we need to touch certain parts of the legacy system more often than others. Those can be refactored and decoupled to make it testable and put around it a bank of unit tests.
+Legacy code normally doesn´t have much unit tests, it wasn´t designed to be testable. It is full of large methods and classes very difficult to test. Bob recommended the book, _Working effectively with legacy code_. In that book Michael Feathers suggests that we eventually will find that we need to touch certain parts of the legacy system more often than others. Those can be refactored and decoupled to make it testable and put around it a bank of unit tests.
 
 Always try to follow the _Boy scout rule, leave the field better than you found it_. This eventually will make a non-tested code into a tested code.
 
@@ -120,9 +120,9 @@ If you have to add a feature that talks to a legacy system, you can decouple it 
 
 ## To BDD or TDD
 
-All of the things ending with DD are becoming so popular. BDD, TDD and DDD are some examples.
+All of the things ending with DD are becoming so popular nowadays. BDD, TDD and DDD are some examples.
 
-Basically TDD and BDD are the same, there is no much difference. Behavioral Driven Development just adds the GIVEN, WHEN and THEN, so we are still testing but the difference is the way we express the test.
+Basically TDD and BDD are the same, there is no much difference. _Behavioral Driven Development_ just adds the GIVEN, WHEN and THEN, so we are still testing. The difference is the way we express the tests.
 
 The main difference between different type of tests is its level:
 
