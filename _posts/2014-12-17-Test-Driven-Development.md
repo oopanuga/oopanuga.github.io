@@ -14,11 +14,11 @@ _Ok, let me read something about that test first stuff..._
 ## Test Driven Development, the basics.
 
 _Test Driven Development_ (TDD) is a software development process that relies on the repetition of a very short development cycle. We start by breaking down a user story into smaller chunks, the smaller, the better.
-Each of these chunk are taking and expressed in the form of a test. 
+Each of these chunks are taken and expressed in the form of a test. 
 
 This test should be initially failing, the functionality is not yet there, right? Failing to compile is a failing test as well. We make this test pass by writing the minimum amount of code to pass that test, of course it means making it to compile. After that we refactor the code written so far to make improvements, including tests and production code. Let´s take a closer look to the Algorithm:
 
-![Image description](/images/tdd/TTDAlg.PNG)
+![Image description](/images/tdd/TDDAlg.PNG)
 
 1. *Add a test*: Let´s take one of the smaller bits on which we broke our requirement (happy path and exceptions). We write a test for it. To write a test we must understand the specification, that´s where the power of TDD starts, we would name the test to describe clearly what we are just about to develop. This is a differentiating feature of test-driven development versus writing unit tests after the code is written: it makes the developer focus on the requirements before writing the code, a subtle but important difference.
 
@@ -39,17 +39,17 @@ Imagine we work developing a huge CRM system. Every time we make a little change
 
 But what if we take it further? Why don´t we allow those tests that describe the behavior that must be implemented, to drive our development. The benefit is straight: the resulting production code will satisfy every user requirement doing that the simplest way possible. We won´t over engineer, we would just write the minimum code.
 
-> I encourage you to try test-driven development, and write unit tests because I personally have found them to be the most beneficial practice I have ever followed in my career. And the one secret to this is that tests are just as much about design as they are about insuring quality.
->> Scott Allen
+> I encourage you to try test-driven development, and write unit tests because I personally have found them to be the most beneficial practice I have ever followed in my career. And the one secret to this is that tests are just as much about design as they are about insuring quality. Scott Allen
 
 ## _Ok, I got it , let me try..._
 
 It all sounds reasonable by the book, but we know practicing is the hardest part. Let´s exercise it with the following exercise. Do you want to do some pair programming with me?
 
 We are writing an application on which we can rate restaurants. We pick the next task and it states the following:
+
 > The business wants to get the average rating of a restaurant. They want to try different approaches and see which one works the best. For now we have two different ways:
->> One approach to calculating the overall rating for a restaurant would be to just take the simple average of the rating property for the last N number of reviews where N is something an administrator can configure, so it might be the last 10 reviews or the last 100 reviews. 
->> Another approach would be to compute a weighted mean where the most recent reviews are more heavily weighted. That would benefit a restaurant that is improving after a bad start and getting better reviews. It might also benefit a customer who is thinking about going to a restaurant that used to have great quality, but is now on the decline.
+ > One approach to calculating the overall rating for a restaurant would be to just take the simple average of the rating property for the last N number of reviews where N is something an administrator can configure, so it might be the last 10 reviews or the last 100 reviews. 
+ > Another approach would be to compute a weighted mean where the most recent reviews are more heavily weighted. That would benefit a restaurant that is improving after a bad start and getting better reviews. It might also benefit a customer who is thinking about going to a restaurant that used to have great quality, but is now on the decline.
 
 If we don´t use TDD we would just sit down with a blank piece of paper and design the class structure for this. Instead we will use TDD from scratch. We don´t even have a vague idea on how to do this, we just know the requirements.
 
