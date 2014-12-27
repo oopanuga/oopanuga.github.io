@@ -962,30 +962,39 @@ One can argue that TDD works well when there is a single person working in a sin
 
 TDD works really well with pair programming. One programmer can drive to make a failing test and make it pass, then swap the driver.
 
-Read more about different approaches to use TDD that we follow in something called [Global Day of Code Retreat](http://javicaria.github.io/Global-Day-of-Coderetreat/).
+Read more about different approaches to use TDD that we followed in something called [Global Day of Code Retreat](http://javicaria.github.io/Global-Day-of-Coderetreat/).
 
 ## _All I work on is bugs and legacy code, I need to fix a bug, how can I do TDD?_
 
-It´s true, TDD is test driven development, so that legacy code wasn´t developed with that philosophy in mind. Most of the times, Legacy code doesn´t even have unit test around it, and sometimes the quality of that legacy code is not even right (remember those 4000-lines-long methods?). Legacy code is not easy to test.
-In that case all we can do is Unit Testing. One of the approaches that Michael Feathers recommends in his book _Working Effectively with Legacy code_ when he needs to touch some legacy code, before any other thing, he writes a bunch of unit tests around it. Then we can safely apply refactoring techniques, making it easier and safer to modify.
-It also works when we have to add a little bit of functionality to the legacy code: we can loosely couple the new code and do TDD for our new feature. Mockings and Stubs can help a lot with that.
+It´s true, TDD is test driven development, so that legacy code wasn´t developed with that philosophy in mind. Most of the times, Legacy code doesn´t even have unit tests around it, and sometimes the quality of that legacy code is not even right (remember those 4000-lines-long methods?). Legacy code is not easy to test.
 
-The same happens when we write the code first and then we need to add unit tests for it, sometimes it´s really hard to do those tests for that piece of code. I´m sure you remember some previous experiences similar to that. I know it wasn´t easy and you ended up not writing those tests because it was nearly impossible. That´s not pretty but no worries, I´ve done the same.
+To sum up:
 
-If you don´t have even a testing framework, go and search for it. Are you a Cobol developer and you start a new project without unit tests?
-Go and search for "Unit test cobol" in Google, I bet there is already something for you out there.
+> We can´t use TDD to unit test Legacy code.
+
+In that case all we can do is Unit Testing. One of the approaches that _Michael Feathers_ recommends in his book _Working Effectively with Legacy code_ when he needs to touch some legacy code, before any other thing, he writes a bunch of unit tests around it. Then we can safely apply refactoring techniques, making it easier and safer to modify. This is a great book if you work mainly doing hot fixes for existing code.
+
+The same applies when we have to add a little bit of functionality to the legacy code: we can loosely couple the new code and do TDD for our new feature. Mockings and Stubs can help a lot with that.
+
+The same happens when we write the code first and then we need to add unit tests for it, sometimes it´s really hard to do those tests for the piece of code we´ve just written. I´m sure it wasn´t easy and you sometimes you ended up not writing those tests because it was nearly impossible. That´s not pretty but no worries, I´ve done the same. With TDD you don´t have the same problem.
+
+If you don´t even have even a testing framework when you start a new job, go and search for it. Are you a Cobol developer and you start a new project without unit tests? Go and search for "Unit test cobol" in Google, I bet there is something out there for you.
 
 ## _This TDD is outdated, now I need to use BDD, isn´t it?_
 
 To TDD or BDD? That is the question.
+
 For me the answer is quite straight, it is the same thing with different names.
 BDD arose apparently because unit tests written in TDD style didn´t describe the user´s desired behavior correctly, it was quite too technical.
 I have never seen such a problem, I try to do TDD describing behavior in the unit tests.
 Here you have a naming conversion between TDD and BDD:
 
 Test Driven Development            Behavioral Driven Development
+
 Arrange                            Given
+
 Act                                When
+
 Assert                             Then
 
 So basically they are the same things with different names. In our example we followed a more TDD approach by using MSpec tests. Let me show you how those tests are translated using MSTests, with a more pure TDD approach:
