@@ -48,14 +48,16 @@ It all sounds reasonable by the book, but we know practicing is the hardest part
 We are writing an application on which we can rate restaurants. We pick the next task and it states the following:
 
 ``` The business wants to get the average rating of a restaurant. They want to try different approaches and see which one works the best. For now we have two different ways:
- 1. One approach to calculating the overall rating for a restaurant would be to just take the simple average of the rating property for the last N number of reviews where N is something an administrator can configure, so it might be the last 10 reviews or the last 100 reviews. 
- 2. Another approach would be to compute a weighted mean where the most recent reviews are more heavily weighted. That would benefit a restaurant that is improving after a bad start and getting better reviews. It might also benefit a customer who is thinking about going to a restaurant that used to have great quality, but is now on the decline.```
+
+1. One approach to calculating the overall rating for a restaurant would be to just take the simple average of the rating property for the last N number of reviews where N is something an administrator can configure, so it might be the last 10 reviews or the last 100 reviews.
+ 
+2. Another approach would be to compute a weighted mean where the most recent reviews are more heavily weighted. That would benefit a restaurant that is improving after a bad start and getting better reviews. It might also benefit a customer who is thinking about going to a restaurant that used to have great quality, but is now on the decline.```
 
 If we don´t use TDD we would just sit down with a blank piece of paper and design the class structure for this. Instead we will use TDD from scratch. We don´t even have a vague idea on how to do this, we just know the requirements.
 
 For this example we are going to use a framework called _MSpec_, [Machine Specification](https://github.com/machine/machine.specifications), instead of other popular ones (MSTest, JUnit or NUnit). I like the way it expresses the tests (BDD style, more about it later). I´m using C# and Visual Studio Community edition.
 
-1. *Add a test*.
+### Add a test
 
 We start by creating a new test class:
 
@@ -250,11 +252,11 @@ Now we have the test completely written and everything compiles.
 
 Please notice how we have created a bunch of classes, RatingResult and RestaurantRater, just by trying to build a compiling test that satisfy the requirement. We have decided names and outcomes of the different classes from the tests as another consumer of the class. In addition, don´t you feel that this is possibly the best we could have written, much more than one written after the code?
 
-2. *Run all tests and see if the new one fails*:
+### Run all tests and see if the new one fails.
 
 Yes, it fails. We were focused on writing the minimum amount of code to make a compiling test. 
 
-3. *Write some code*: 
+### Write some code.
 
 Guess what we need to do to make it pass? Right, let´s return one RatingResult with Rating equals to 4:
 
@@ -278,18 +280,24 @@ namespace RestaurantsReview
 }
 {% endhighlight %}
 
-4. *Run tests*: Great it passes!
+### Run tests 
+
+Great it passes!
 
 But wait a moment, this way of passing a test is completely ridiculous.
 
 Ok... However, this is one of the keys of doing TDD: do the simplest possible thing to make a test pass, and then you just keep adding tests that will test more conditions. 
 We're going to change the implementation of Compute, that for sure, but along the way, as we make these changes, we are going to write tests for it, and they're going to make sure that we're making the right changes, and that as we're adding things and adding features and reconstructing the code, we're not breaking anything. 
 
-5. *Refactor code*: 
-If we take a look at what we have so far, I´m quite happy. I like the naming and the classes involved so far. It is to early to do any other refactor. Let´s move on to another scenario.
+### Refactor code
 
-6. *Repeat*: Now we have a running test, let´s get into speed and add more test cases.
- 1. Several reviews for a Restaurant:
+If we take a look at what we have so far, I´m quite happy. I like the naming and the classes involved. It is too early to do any other refactoring. Let´s move on to more scenarios.
+
+### Repeat 
+
+Now we have a running test, let´s get into speed and add more test cases.
+
+#### Several reviews for a Restaurant:
 
 {% highlight c# %}
 using System.Collections.Generic;
@@ -298,25 +306,6 @@ using Reviews;
 
 namespace RestaurantReview.Tests
 {
-    [Subject("RestaurantRater")]
-    public class When_computing_result_for_one_review
-    {
-        Establish context = () => 
-        {
-            var data = new Restaurant();
-            data.Reviews = new List<Reviews.RestaurantReview>();
-            data.Reviews.Add(new Reviews.RestaurantReview(){Rating = 4});
-            _sut = new RestaurantRater(data);
-        };
-
-        Because of = () => _result = _sut.Compute(10);
-
-        It set_restaurant_rating = () => _result.Rating.ShouldEqual(4);
-
-        static RestaurantRater _sut;
-        static RatingResult _result;
-    }
-
     [Subject("RestaurantRater")]
     public class When_computing_result_for_two_reviews
     {
@@ -339,7 +328,7 @@ namespace RestaurantReview.Tests
 }
 {% endhighlight %}
 
-Now we have a restaurant with two reviews. It fails. Let´s write some code to make it pass. The simplest possible I can imagine is the following:
+Now we have a restaurant with two reviews. It fails. Let´s write some code to make it pass. The simplest possible code I can imagine is the following:
 
 {% highlight c# %}
 namespace RestaurantsReview
@@ -363,8 +352,11 @@ namespace RestaurantsReview
 }
 {% endhighlight %}
 
-Now both of the tests pass, it´s time to refactor. The logic is quite simple yet, but we see some duplication in the tests´ Establish. Something really key in TDD is that Tests are important as the logic and it needs to be in shape.
-Let´s try to refactor it. In order to create a new method for that and use it in the two tests, because of the way MSpec works, we need to create a base class for the two tests. What do you think about the following:
+Now both of the tests pass, it´s time to refactor. The logic is quite simple yet, but we see some duplication in the tests´ Establish. 
+
+Something really key in TDD is that Tests are as important as the logic. They need to be in the best of the shapes, we don´t want to test to be another maintainance nightmare. Code standards apply to tests as well. 
+
+In order to avoid dupplication in our Establish, we can create a new method that creates a restaurant and use it in the two tests. Because of the way MSpec works, with one class for every test scenario, we need to create a base class for the two tests. What do you think about the following solution:
 
 {% highlight c# %}
 using System.Linq;
@@ -420,12 +412,13 @@ namespace RestaurantReview.Tests
 {% endhighlight %}
 
 Now we can easily create one restaurant with any number of ratings. This is a helper method that can be used in any other test. The linq operation takes the list of ratings and transforms it into a list of reviews
-Every test still pass and we can follow with the next one.
-I´m using by the way something called [NCrunch](http://javicaria.github.io/NCrunch/) the ultimate TDD Tool so I don´t have to run any test manually. Do you think it is cheating? I don´t think so, I just try to work faster.
+Every test still passes and we can follow with the next case.
 
- 2. Taking the last N number of reviews: 
+(I´m using by the way something called [NCrunch](http://javicaria.github.io/NCrunch/) the ultimate TDD Tool so I don´t have to run any test manually. Do you think it is cheating? I don´t think so, I just try to work faster.)
 
-So far we haven´t considered the N number of reviews in the code. Let´s write some tests for it.
+#### Taking the last N number of reviews: 
+
+So far we haven´t considered the N number of reviews in the code. Let´s write some tests for it, we can pass a restaurant with 5 reviews and compute just 3:
 
 {% highlight c# %}
 [Subject("RestaurantRater")]
@@ -478,9 +471,9 @@ For the next step, we would start testing boundary conditions: What happens when
 To keep this post simpler, let´s assume every of these is done.
 Let´s take the next way of calculating the rating of a restaurant and how it impacts the design.
 
- 3. Implementing the weighted mean rate:
+#### Implementing the weighted mean rate:
 
-Let´s write a test first for this:
+Let´s write a test first for this case:
 
 {% highlight c# %}
 using System.Linq;
@@ -489,23 +482,6 @@ using Reviews;
 
 namespace RestaurantReview.Tests
 {
-    [Subject("RestaurantRater")]
-    public class When_computing_result_for_two_reviews : TestContext
-    {
-        Establish context = () =>
-        {
-            var restaurant = CreateRestaurant(ratings: new []{4, 6});
-            _sut = new RestaurantRater(restaurant);
-        };
-
-        Because of = () => _result = _sut.ComputeAverage(10);
-
-        It sets_average_rating = () => _result.Rating.ShouldEqual(5);
-
-        static RestaurantRater _sut;
-        static RatingResult _result;
-    }
-
     [Subject("RestaurantRater")]
     public class When_computing_weighted_average_for_two_reviews : TestContext
     {
@@ -517,25 +493,15 @@ namespace RestaurantReview.Tests
 
         Because of = () => _result = _sut.ComputeWeightedAverage(3);
 
-        It sets_weighted_rating = () => _result.Rating.ShouldEqual(4);
+        It sets_rating_with_recent_review_weighted_twice_heavier = () => _result.Rating.ShouldEqual(4);
 
         static RestaurantRater _sut;
         static RatingResult _result;
     }
-
-    public class TestContext
-    {
-        protected static Restaurant CreateRestaurant(params int[] ratings)
-        {
-            var restaurant = new Restaurant();
-            restaurant.Reviews = ratings.Select(r => new Reviews.RestaurantReview { Rating = r }).ToList();
-            return restaurant;
-        }
-    }
 }
 {% endhighlight %}
 
-We have renamed the previous Compute method and added a new ComputeWeightedAverage. We have to write the recent review twice as heavily as the previous review. In that scenario we have 3 and 9 as reviews ratings but we expect 4 because the 3 is more heavily weighted. Let´s write a dirty implementation to satisfy this requirement:
+We have added a new ComputeWeightedAverage into the RestaurantRater. We have to write the recent review twice as heavily as the previous review. In that scenario we have 3 and 9 as reviews ratings but we expect 4 because the 3 is more heavily weighted. Let´s write a dirty implementation to satisfy this requirement:
 
 {% highlight c# %}
 public RatingResult ComputeWeightedAverage(int numberOfReviews)
@@ -547,7 +513,7 @@ public RatingResult ComputeWeightedAverage(int numberOfReviews)
 
     for (int i = 0; i < restaurantReviews.Count(); i++)
     {
-	    if (i < restaurantReviews.Count() / 2)
+	if (i < restaurantReviews.Count() / 2)
         {
             counter += 2;
             total += restaurantReviews[i].Rating;
@@ -564,9 +530,11 @@ public RatingResult ComputeWeightedAverage(int numberOfReviews)
 }
 {% endhighlight %}
 
-Now the test pass but we have a lot cases to take into account, for example what happens when the number of reviews is even, how do we truncate. This is the typical case where we will go back to the business and ask so many clarifications, then go back and write a test case for it.
+Now the test pass but we have a lot cases to take into account, for example what happens when the number of reviews is even? How do we truncate? This is the typical case where we will go back to the business and ask so many clarifications, then go back and write a test case for it.
 
-For this post let´s concentrate on high level design. One thing that really bothers me is how the RestaurantRater is responsible for computing a simple rating and a weighted rating. In addition we know this is an area really prone to change because we already know that the business will likely want to apply new approaches, they will add new algorithms and change existing algorithms. If we need to go back to the RestaurantRater and change the algorithms inside there or add new ones, then things will be really difficult to manage. We need a way to have easy-to-change algorithms while making the tests still to pass. This is the typical scenario to apply the _Strategy Pattern_. The basic idea is to have a common interface for the algorithm and having multiple implementations of the algorithm.
+For this post let´s concentrate on high level design. 
+
+One thing that really bothers me is how the RestaurantRater is responsible for computing a simple rating and a weighted rating. In addition we know this is an area really proned to change because we already know that the business will likely want to apply new approaches, they will add new algorithms and change existing algorithms. If we need to go back to the RestaurantRater and change the algorithms inside there or add new ones, then things will be really difficult to manage. We need a way to have easy-to-change algorithms while making the tests still to pass. This is the typical scenario to apply the _Strategy Pattern_. The basic idea is to have a common interface for the algorithm and having multiple implementations of the algorithm.
 
 We start by doing some refactoring from the tests. Let´s inject an interface _IRatingAlgorithm_ into the _RestaurantRater_ Compute method that will take care of the computations. From the _RestaurantRater_ perspective we don´t care about the concrete implementations of the Algorithm, all we need is any Algorithm. 
 This is the ideal scenario to use the so called Mock objects. The benefit of using a mock is that if the interface adds new members, we don´t need to modify the mock object.
@@ -595,7 +563,7 @@ I use RhinoMocks for that.
     {% endhighlight %}
 
 The interface doesn´t exist, we use Resharper to generate it.
-We need to mock the method that will be hit for the algorithm, we can choose the name from the test:
+We need to mock the method that will be hitten in the algorithm, we can choose the name from the test:
 
 {% highlight c# %}
 [Subject("RestaurantRater")]
@@ -620,7 +588,7 @@ We need to mock the method that will be hit for the algorithm, we can choose the
     }
     {% endhighlight %}
 
-See how we inject the mock object into the Compute method and still do the same assertion. To make it pass we need to let the algorithm to do compute and assign the rating:
+See how we inject the mock object into the Compute method and still do the same assertion. To make it pass we need to let the algorithm do compute and assign the rating:
 
 {% highlight c# %}
 using System.Linq;
@@ -646,7 +614,7 @@ namespace Reviews
 
 Great it passes. Let´s arrange the tests to make them pass... 
 
-> Wait! Can I touch existing tests? But of course, in general, if a test is not relevant after a refactor, the functionality is not like that any more, we can modify tests. We can even delete tests, but treat this case carefully (no, deleting tests is not fixing breaking tests).
+> Wait! Can I touch existing tests? But of course, in general, if a test is not relevant after a refactor or the functionality has changed, we can modify tests. We can even delete tests, but treat this case carefully (deleting tests is not fixing breaking tests).
 
 {% highlight c# %}
 using System.Linq;
@@ -756,11 +724,13 @@ I don´t like two things of the current tests:
 
 1. We have redundant tests: From the RestaurantRater perspective we don´t care anymore about the specific rating algorithm used. Therefore we don´t need specific test cases for the different algorithms in this context.
 
-2. The test that checks that only the N first reviews are considered passes but I know after the refactoring that it isn´t the case.
+2. The test that checks that only the N first reviews are considered still passes. If we look RestaurantRater we aren´t doing that. This is because we are mocking the entire rating calculations in the test.
 
-In order to fix the first issue we can delete some tests of RestaurantRater but I don´t want to loose those checks: these checks are correct from the business perspective. Instead, what we can do is move them to a new test class to check the specific algorithm. Mmmm... We don´t even have concrete implementations of the algorithm, all we have is an interface and mock objects! Damn it:)
+In order to fix the first issue we can delete some tests of RestaurantRater but I don´t want to loose those checks: these checks are correct from the business perspective. Instead, what we can do is move them to a new test class to check the specific algorithm. 
 
-We create a couple of test classes, one for every type of computing the rating. We cut and paste those redundant tests so I don´t loose those business requirements. These are the tests for the Simple algorithm:
+Mmmm... We don´t even have concrete implementations of the algorithm, all we have is an interface and mock objects! Damn it:)
+
+We create a couple of test classes, one for every type of rating computation. We cut and paste those redundant tests so I don´t loose those business requirements. These are the tests for the Simple algorithm:
 
 {% highlight c# %}
 using System.Collections.Generic;
@@ -909,7 +879,7 @@ namespace RestaurantsReview
 
 ## _Mocks, why would I do that?_
 
-A mock object is an object programmed with expectations about how it will communicate with other components. Those expectations can vary a lot, and there are a lot for assertions we can make. In other words, mocks can help designing the communication between classes.
+A mock object is an object programmed with expectations about how it will communicate with other components. Those expectations can vary a lot, and there are a lot of assertions we can make. In other words, mocks can help designing the communication between classes.
 
 We have one example in our Restaurant Reviews application...
 
@@ -933,7 +903,7 @@ But that was the test that we knew wasn´t really doing the check. To check that
 
         Because of = () => _sut.Compute(_algorithm, 3);
 
-        private It sets_average_rating_of_last_three_reviews = () =>
+        It sets_average_rating_of_last_three_reviews = () =>
         {
             var relevantReviews = _algorithm.GetArgumentsForCallsMadeOn(a => a.Compute(null), mo => mo.IgnoreArguments())[0][0]
                 as ICollection<Reviews.RestaurantReview>;
@@ -945,7 +915,9 @@ But that was the test that we knew wasn´t really doing the check. To check that
     }
 {% endhighlight %}
 
-This test is a bit harder to read but I feel much more confident with it. We get the reviews sent over the algorithm and count the number of it. It should match the N parameter (3 in this case) configured in the RestaurantRater.Compute.
+Please notice how our It part is bigger. This test is a bit harder to read but I feel much more confident with it. We get the reviews sent over the algorithm (by using RhinoMocks, GetArgumentsForCallsMadeOn) and count the number of it. It should match the N parameter (3 in this case) configured in the RestaurantRater.Compute.
+This is why we should use Mocks carefully, it makes test less readable.
+
 Now we have a failing test, let´s try to fix that:
 
 {% highlight c# %}
@@ -973,6 +945,8 @@ namespace Reviews
 Voilà! Job done. Passing tests.
 
 I hope with this example you´ve seen how we´ve done TDD from scratch and how while trying to make test pass and refactoring, all of the structure evolved including the usage of the Strategy pattern.
+
+You may would have ended with the same production code without TDD, you may not. But, can you imagine doing UnitTests for that code after having written it? With TDD it was much more fun.
 
 ## _Right, it works! But it was a simple example, I can´t do that for complex systems. Furthermore what happens when we are a bunch developers creating something new? Do we start on our own from scratch with TDD?_
 
