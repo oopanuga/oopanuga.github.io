@@ -989,15 +989,15 @@ BDD arose apparently because unit tests written in TDD style didn´t describe th
 I have never seen such a problem, I try to do TDD describing behavior in the unit tests.
 Here you have a naming conversion between TDD and BDD:
 
-Test Driven Development            Behavioral Driven Development
+Test Driven Development        ->    Behavioral Driven Development
 
-Arrange                            Given
+Arrange ->                            Given
 
-Act                                When
+Act       ->                         When
 
-Assert                             Then
+Assert      ->                       Then
 
-So basically they are the same things with different names. In our example we followed a more TDD approach by using MSpec tests. Let me show you how those tests are translated using MSTests, with a more pure TDD approach:
+So basically they are the same thing with different names. In our example we followed a more BDD approach by using MSpec tests. Let me show you how those tests are translated using MSTests, with a more pure TDD approach, and you can compare the two of them.
 
 Microsoft Tests:
 
@@ -1017,7 +1017,7 @@ Microsoft Tests:
         }
 {% endhighlight %}
 
-MAchine Specification tests:
+Machine Specification tests:
 {% highlight c# %}
 [Subject("RestaurantRater")]
     public class When_computing_result_for_two_reviews
