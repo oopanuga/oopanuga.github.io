@@ -1,0 +1,26 @@
+
+
+The code
+Solution: don´t update the UI from the main thread but let that thread to update it by means of a Invoke and lambda expression.
+
+It is esentially right but the code is messy because is hard to say on what thread we are.
+- Knowing the thread context is a challenge.
+- Creating over and over new threads is not very efficient, but create a pool of thread, so that we can reuse threads.
+
+How is it done?
+He creates a task that encapsulates the price retrieval from yahoo.
+This task is in a pool of threads.
+
+then he says: task.ContinueWith(another method). Another method will update price.
+But it didn´t remove the problem from our shoulders.
+
+Don´t fail quietly. The request doesn´t come back and the main thread waits there.
+
+Using sequential vs concurrent: ANother problem that happens.
+We have converted a simple code into a monster with tasks, only to get responsiveness.
+
+We need to make this code beautiful back again.
+
+async and await come to help us:
+The more design patterns you need, the more the language sucks.
+{\rtf1}
