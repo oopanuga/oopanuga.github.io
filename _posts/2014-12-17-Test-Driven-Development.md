@@ -47,11 +47,13 @@ It all sounds reasonable by the book, but we know practicing is the hardest part
 
 We are writing an application on which we can rate restaurants. We pick the next task and it states the following:
 
-``` The business wants to get the average rating of a restaurant. They want to try different approaches and see which one works the best. For now we have two different ways:
+{% highlight c# %}
+The business wants to get the average rating of a restaurant. They want to try different approaches and see which one works the best. For now we have two different ways:
 
 1. One approach to calculating the overall rating for a restaurant would be to just take the simple average of the rating property for the last N number of reviews where N is something an administrator can configure, so it might be the last 10 reviews or the last 100 reviews.
  
-2. Another approach would be to compute a weighted mean where the most recent reviews are more heavily weighted. That would benefit a restaurant that is improving after a bad start and getting better reviews. It might also benefit a customer who is thinking about going to a restaurant that used to have great quality, but is now on the decline.```
+2. Another approach would be to compute a weighted mean where the most recent reviews are more heavily weighted. That would benefit a restaurant that is improving after a bad start and getting better reviews. It might also benefit a customer who is thinking about going to a restaurant that used to have great quality, but is now on the decline.
+{% endhighlight %}
 
 If we don´t use TDD we would just sit down with a blank piece of paper and design the class structure for this. Instead we will use TDD from scratch. We don´t even have a vague idea on how to do this, we just know the requirements.
 
