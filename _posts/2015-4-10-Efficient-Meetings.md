@@ -11,31 +11,31 @@ Today I wanted to talk you about Meetings. Our world is heavy on meetings, we or
 
 Yes, for sure. Sometimes we need to talk about some issue or anything with a bunch of people. We could send instant messages or we could use slack or email to communicate with those people, but normally the best way is to schedule a meeting with them.
 
-Agile methodologies are heavy on meetings because Agile is react quickly to change, and therefore the only way to get together and talk about the change is to do a meeting.
+Agile methodologies are heavy on meetings because Agile is about reacting quickly to change, and therefore the only way to get together and talk about the change is to do a meeting.
 
 ### _Are meetings efficient?_
 
-Well, sometimes, but most meetings are far from being efficient.
+Well, sometimes, but some meetings are far from being efficient.
 
-Have you ever started a meeting and a great amount of the attendees were talking for 15 minutes about football, TV shows or similar stuff.
+Have you ever started a meeting and a great amount of the attendees were talking for 15 minutes about football, TV shows or similar stuff?
 
 Don´t get me wrong, talking about football is required, chilling out with your colleagues is required as well. But are meetings the right place to do that?
 
-Have you ever attend to a meeting and by the end of the meeting there were no actions or goals? You went out and you didn´t have a clue about the topic of the meeting or what it was for, except talking about random things.
+Have you ever attended to a meeting and by the end of the meeting there were no actions or goals? You went out and you didn´t have a clue about the topic of the meeting or what it was about, except talking about random things.
 
 Imagine a meeting with 7 attendees, the meeting takes about an hour. If we don´t make it efficiently, we are basically wasting 7 hours for nothing. It´s not only a waste of time and resources, it´s not only the the time spent in the meeting, it´s also the time afterwards to go back to what you were doing before the meeting.
 
-The thing goes even worse when the meeting is attend by remote participants...
+The thing goes even worse when the meeting is attended by remote participants...
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/z_tiqlBFjbk" frameborder="0" allowfullscreen></iframe>
 
 I always wonder why even big companies have this problem and they don´t have a well established procedure for meetings.
 
-If we need meetings, and we don´t make them efficiently, let´s make them efficient. It´s all common sense, it should be about setting some goals with the right people.
+Meetings... can´t live with them, can´t live without them. If we need meetings, and we don´t make them efficiently, let´s make them efficient. It´s all common sense, it should be about setting some goals with the right people.
 
 ## You need to organize a meeting
 
-Let´s imagine I need to arrange a meeting. Let´s see what steps I should follow.
+Let´s imagine I need to arrange a meeting. Let´s see what steps should I follow.
 
 ### Before the meeting
 
