@@ -3,8 +3,6 @@ layout: post
 title: Efficient Meetings
 ---
 
-Hi there!
-
 ## Meetings, meetings, meetings
 
 Today I wanted to talk you about Meetings. Our world is heavy on meetings, we organize a meeting for nearly everything. If you have to catch up with somebody: _Why don´t we do a meeting for this?_ We´ve got Scrum meetings, we´ve got 1-2-1 meetings, we´ve got meetings to talk about meetings and we attend to meetings that we don´t know what they will be about.
