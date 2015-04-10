@@ -19,17 +19,13 @@ Agile methodologies are heavy on meetings because Agile is react quickly to chan
 
 Well, sometimes, but most meetings are far from being efficient.
 
-Have you ever started a meeting and a great amount of the attendees were talking for 15 minutes about football, TV shows or similar stuff. 
-
-![Image description](/images/meetings/football.jpg)
+Have you ever started a meeting and a great amount of the attendees were talking for 15 minutes about football, TV shows or similar stuff.
 
 Don´t get me wrong, talking about football is required, chilling out with your colleagues is required as well. But are meetings the right place to do that?
 
 Have you ever attend to a meeting and by the end of the meeting there were no actions or goals? You went out and you didn´t have a clue about the topic of the meeting or what it was for, except talking about random things.
 
 Imagine a meeting with 7 attendees, the meeting takes about an hour. If we don´t make it efficiently, we are basically wasting 7 hours for nothing. It´s not only a waste of time and resources, it´s not only the the time spent in the meeting, it´s also the time afterwards to go back to what you were doing before the meeting.
-
-![Image description](/images/meetings/meetings.jpg)
 
 The thing goes even worse when the meeting is attend by remote participants...
 
