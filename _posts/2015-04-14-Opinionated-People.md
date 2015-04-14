@@ -10,7 +10,7 @@ You were having a few drinks with your mates and a friend of them came. You star
 But suddenly that guy spoke. He quickly started his discourse about why Dell computers are so awesome, he didn´t leave room to anyone to speak anymore, he was the biggest ever Dell´s computer fan. 
 Some of my mates tried to tell him about Lenovo computers but it was an impossible task.
 
-I thought: _It´s nice to find somebody that passionate about something but this is too much..."_
+I thought: _It´s nice to find somebody that passionate about something but this is too much..._
 
 ### Building opinionated people in IT
 
