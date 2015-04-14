@@ -6,19 +6,17 @@ title: Opinionated people
 ## And there he goes, yet another opinionated guy...
 
 Surely you´ve met this kind of guys. 
-You were having a few drinks with your mates and a friend of them came. You started talking about computers, it was a positive communication and constructive conversation.
-But suddenly that guy spoke. He quickly started his discourse about why Dell computers are so awesome, he didn´t leave room to anyone to speak anymore, he was the biggest ever Dell´s computer fan. 
-Some of my mates tried to tell him about Lenovo computers but it was an impossible task.
+You were having a few drinks with your mates, including your opinionated friend. You started talking about computers, it was a positive and chilled out conversation.
+But suddenly that guy spoke. He quickly started his discourse about why Dell computers are so awesome, he didn´t leave any room for others to speak, he was the biggest ever Dell´s computer fan. 
+Some the other guys tried to tell him about Lenovo computers but it was an impossible task.
 
-I thought: _It´s nice to find somebody that passionate about something but this is too much..._
+## Building opinionated people in IT
 
-### Building opinionated people in IT
+You can find them everywhere, but we get a lot of this kind of people in our tech industry. I´d rather think we build them, that we create that kind of character...
 
-You can find them everywhere, but we get a lot of this kind of people in our tech industry. I´d rather think we build them...
+Our Tech industry is a tough world to be in. 
 
-In my opinion we pretty much build that character. 
-
-Our Tech industry is a tough world to be in. There are a thousand things to learn, you could spend a couple of life´s times learning about backend technologies.
+There is a thousand things to learn, you could spend a couple of lives learning about backend technologies.
 You need to know about the user and the product, you need to be looking into new technologies while maintaining that legacy system that nobody understand.
 You start learning Javascript and there are dozens of frameworks to chose: EmberJS, Knockout, Angular, look at that Facebook created a new React framework.
 You need to do TDD while doing BDD and applying DDD at the same time.
@@ -72,9 +70,12 @@ If you really believe in your point is a good chance to learn about it, learning
 
 ### What about me?
 
-Of course, I´m an opinionated guy, I can be really stubborn sometimes. Why am I writing this post? Because I´m opinionated.
+Of course, I´m an opinionated guy, I can be really stubborn sometimes. Why am I writing this post? Because I´m opinionated. When I like something I talk so much about it that I can be even irritating. I need to stop myself from being overwhelming with the stuff.
+
 But I try to listen to other people´s points. In my opinion that´s the only way to learn and grow. 
 I really like modest people that listen, when you are talking to them you can see in their eyes that they are paying attention. Modest people that when you talk to them you notice how many things they know.
+
+We really need talented modest people that listen.
 
 In the UK they have an expression:
 
