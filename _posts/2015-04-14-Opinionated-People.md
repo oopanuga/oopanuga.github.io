@@ -10,14 +10,16 @@ You were having a few drinks with your mates and a friend of them came. You star
 But suddenly that guy spoke. He quickly started his discourse about why Dell computers are so awesome, he didn´t leave room to anyone to speak anymore, he was the biggest ever Dell´s computer fan. 
 Some of my mates tried to tell him about Lenovo computers but it was an impossible task.
 
-I thought: _It´s nice to find somebody that passionate about something but this is too much..."
+I thought: _It´s nice to find somebody that passionate about something but this is too much..."_
 
 ### Building opinionated people in IT
 
 You can find them everywhere, but we get a lot of this kind of people in our tech industry. I´d rather think we build them...
 
-In my opinion we pretty much build that character. Our Tech industry is a tough world. There are a thousand things to learn, you could spend a couple of life´s times learning about backend technologies.
-You need to know about the user and the product, you need to be looking forward to new technologies while maintaining that legacy system that nobody understand.
+In my opinion we pretty much build that character. 
+
+Our Tech industry is a tough world to be in. There are a thousand things to learn, you could spend a couple of life´s times learning about backend technologies.
+You need to know about the user and the product, you need to be looking into new technologies while maintaining that legacy system that nobody understand.
 You start learning Javascript and there are dozens of frameworks to chose: EmberJS, Knockout, Angular, look at that Facebook created a new React framework.
 You need to do TDD while doing BDD and applying DDD at the same time.
 
@@ -30,7 +32,7 @@ Having this kind of people in your organization is not necessarily bad. You don�
 have people that believe in things because these things were proven to be effective in their careers. You want to have people that champion things and that help moving forward and spreading the knowledge.
 But a really skilled developer with opinion about things, also listens to other people and changes his point if necessary.
 
-> You want also people that listen in your organization.
+> You want people that listen in your organization.
 
 Overopinionated people is the danger. 
 
@@ -72,6 +74,7 @@ If you really believe in your point is a good chance to learn about it, learning
 
 Of course, I´m an opinionated guy, I can be really stubborn sometimes. Why am I writing this post? Because I´m opinionated.
 But I try to listen to other people´s points. In my opinion that´s the only way to learn and grow. 
+I really like modest people that listen, when you are talking to them you can see in their eyes that they are paying attention. Modest people that when you talk to them you notice how many things they know.
 
 In the UK they have an expression:
 
