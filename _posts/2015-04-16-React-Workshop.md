@@ -8,14 +8,14 @@ title: A mini React workshop by Damjan Vujnovic
 _Angular, Knockout, Ember, jQuery, Ext... React? This is going mad.
 Why do I need to learn about another framework?_
 
-That were the questions I was asking to myself when my colleague Richard Kotze told me the first time about ReactJS.
-He was telling so many great features about it and also we are going to use that in the team, so that last Tuesday we went together to a React workshop by Damjan Vujnovic, all that hosted by the [Skills Matter](https://skillsmatter.com/meetups/7024-a-mini-hands-on-react-workshop).
+That was my thinking when my colleague Richard Kotze told me about ReactJS for the first time.
+He was telling so many great features about it and also we were possibly going to use it in the team, so that last Tuesday we went together to a React workshop by Damjan Vujnovic, all that hosted by the [Skills Matter](https://skillsmatter.com/meetups/7024-a-mini-hands-on-react-workshop).
 
-This was the abstract of the talk:
+This is the abstract of the talk:
 
 > React is a Javascript library for building User Interfaces and in this workshop, we'll explore React, while building a simple app.
 
-If you start reading about React first stupid things that you notice is that it has been created by Facebook and now it is used also in Instagram and few other places. I say stupid because that shouldn´t be a reason to choose a framework or another.
+If you start reading about React first thing that you notice, it has been created by Facebook (now it is used in Instagram and few other places). Well, is that I reason to choose a framework or another?
 
 Some of the key features of [React](http://facebook.github.io/react/) are:
 
@@ -38,7 +38,7 @@ Damjan gave us the solution of the game in jquery and we have to implement it us
 
 You can get the code in his [GitHub repository](https://github.com/SamuraiPrinciple/Game-Of-Life-React).
 
-You need to install nodeJs. If you download the code you then need to do _npm install_ and you´ll get the node modules required to run it. You´ll see a gruntfile, so you just need to run _grunt_ and you should have a browser comming up. This displays the board and also the running specs. The idea is that you don´t have to relaunch the application when doing some changes, just save the file and grunt is watching to update the files in the browser.
+You need to install nodeJs. If you download the code you then need to do _npm install_ and you´ll get the node modules required to run it. You´ll see a gruntfile, so you just need to run _grunt_ and you should have a browser coming up. This displays the board and also runs the tests. The idea is that you don´t have to relaunch the application when doing some changes, just save the file and grunt is watching to update the files in the browser.
 
 You should also see a bunch of failing specs, these are the React tests you need to implement. The idea is that you need to make these tests to pass while implementing another board of the game of life with React.
 
@@ -100,15 +100,13 @@ There we go a 10*10 board. Let´s add the cells not alive in the begining. In Re
 
 #### state: This is the definition in the documentation.
 
-The state starts with a default value when a Component mounts and then suffers from mutations in time (mostly generated from user events). It's a serializable* representation of one point in time—a snapshot.
+> The state starts with a default value when a Component mounts and then suffers from mutations in time (mostly generated from user events). It's a serializable* representation of one point in time—a snapshot.
 
 There we have properties representing the current state. You also have a bunch of method to manipulate the state, _setState_, _getCurrentState_, _getInitialState_,... The state is private for the component.
 
 #### props: From the documentation:
 
-props (short for properties) are a Component's configuration, its options if you may. They are received from above and immutable as far as the Component receiving them is concerned.
-
-A Component cannot change its props, but it is responsible for putting together the props of its child Components.
+> props (short for properties) are a Component's configuration, its options if you may. They are received from above and immutable as far as the Component receiving them is concerned. A Component cannot change its props, but it is responsible for putting together the props of its child Components.
 
 I have a gut feeling that we need to add a couple of configuration props in our component, rows and columns. As we mentioned before the file _GameOfLife.js_ provides the logic for the game. It returns the cells that are alive.
 With these ingredients, let´s set the initial state using those properties:
