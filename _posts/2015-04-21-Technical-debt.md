@@ -1,8 +1,7 @@
 ---
 layout: post
-title: Debate session: Managing Technical Debt
+title: Debate session, Managing Technical Debt
 ---
-
 Technical Debt is widely regarded as a bad thing; that should be avoided or should be paid back as soon as possible.
 
 Should you? Well sometimes I don't think so. 
