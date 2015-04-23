@@ -37,26 +37,32 @@ Although messy code or code without tests works perfectly for customers if it de
 
 ## Similarities and differences to _Financial Debt_
 
-Code with low quality and no automatic test coverage can be compared with financial debt. This code is like a financial burden, which imposes on all stakeholders - not only on the developers - a debt incurring interest for the future.
+Code with low quality and no automatic test coverage can be compared with financial debt. This code is like a financial loan, which imposes on all stakeholders (not only on the developers) a debt incurring interest for the future.
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/pqeJFYwnkjE" frameborder="0" allowfullscreen></iframe>
 
 ### Similarities
 
+<!---
 - The principal amount is the cost of refactoring the codebase to a clean design, which allows easy future changes. 
 The interest is the extra costs, which have to be paid in the future if the team has to work with a messy codebase instead of a good one.
 
 - Like financial debt, Technical Debt is not necessarily a bad thing. Going into debt to buy a house is responsible if you know how to pay it back. Buying lots of luxury items on your credit card knowing very well you’re not able to cover the bill usually ends up in a disaster. Concerning software Technical Debt might give an advantage of an early release and profit the organization more than it costs to pay back the Technical Debt. In finance, debt is a good thing, if the principal amount plus the interest is lower than the yield of the investment. The same is true for software. If you sacrifice internal quality for being the first on the market, it only pays off if the yield you make with this decision is higher than being later to the market with better internal quality.
+-->
 
 ### Differences
 
+<!---
 - Unlike financial debt, you don’t have to pay back Technical Debt. Sometimes paying it back would even be pointless: some pieces of code are rarely or never read or changed. Therefore Technical Debt also needs to take into account a probability of occurrence - how probable and how often will the messy code be touched in the future? 
 
 - Another difference to financial debt is that the originator of Technical Debt won’t necessarily pay back the debt himself, but rather the developers who maintain the codebase later.
 
 - There is a risk, because it is hard to estimate these benefits upfront since there is a degree of uncertainty.
+-->
 
 ## Strategic design of Technical Debt
 
-Strategic Design says that: 
+Strategic Design says that:
 
 > A system can’t have the same high level of quality throughout the system. 
 
@@ -66,10 +72,13 @@ We can choose to:
 
 - To actively control the quality. Messy code, which is rarely read or touched and doesn’t implement important requirements, does not have to be absolutely perfect and therefore we don’t need to spend a lot of effort on refactoring it into great code. So the question is which parts of the code should have high quality?
 
+> When do you think we should incur in Technical Debt?
+
 Understanding Strategic Design and Technical Debt leads to better communication within a project and therefore to better decisions from the stakeholders of a software project. 
 
 ### Which are the stakeholders of Technical Debt:
 
+<!---
 - *Customers* are annoyed by bugs or missing features due to low productivity.
 
 - This leads to additional costs for the *Customer Service*, which annoys the people there.
@@ -82,10 +91,13 @@ Understanding Strategic Design and Technical Debt leads to better communication 
 
 - Last but not least also the *developers* are suffering. No one wants to deliver bad work. Furthermore, no one wants to take over the bad work of others.
 
+-->
+
 ## Identifying Technical Debt
 
 A major problem of Technical Debt is that it’s not obvious. Anyone can see the amount of debt on an account statement. But how can a team actually recognize Technical Debt? What are the indicators?
 
+<!---
 - General “smells” that manifest themselves in statements from the team members: _the only one who can ever change this code is Mahmut_, _let’s just copy & paste this code_, _if I touch that code everything will break_ or _too many TODOs or FIXMEs in the code_.
 
 - Scrum-teams have a velocity. The software system has probably too much Technical Debt if the velocity decreases even though the team wasn’t changed and the external circumstances did not change.
@@ -99,6 +111,8 @@ A major problem of Technical Debt is that it’s not obvious. Anyone can see the
 - But there are also a lot of cases in which systems have Technical Debt, but it cannot be measured directly in the code, e.g. clumsy solutions, wrong choice of technology, a well-executed, but wrong design for a solution or simply evil hacks that cannot be detected easily by tools. In these cases Technical Debt must be measured differently: *the bugs per release rise rapidly, the velocity decreases permanently or the team is under extreme stress at the end of a release*.
 
 - A very bad indicator are frequent problems in production. This means that the problems in the system are so extensive that reliable operation is no longer possible.
+
+-->
 
 ## How to manage Technical Debt
 
