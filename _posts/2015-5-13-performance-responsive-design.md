@@ -63,11 +63,11 @@ We can use web standards to do that. Smaller not only means smaller size but als
 
 Provides a list of available image sources and their sizes. Browsers can then use this information to pick the best image source.
 
-{% highlight %}
-<img src="small.jpg"
-     srcset="large.jpg 1024w, medium.jpg 640w, small.jpg 320w"
-     sizes="(min-width: 36em) 33.3vw, 100vw"
-     alt="A rad wolf">
+{% highlight c# %}
+	<img src="small.jpg"
+	     srcset="large.jpg 1024w, medium.jpg 640w, small.jpg 320w"
+	     sizes="(min-width: 36em) 33.3vw, 100vw"
+	     alt="A rad wolf">
 {% endhighlight %}
 
 SRC set is a hint for the browser: even if we set specific for a size, browser can get a different image when loading because of connection issues for example.
@@ -76,50 +76,51 @@ SRC set is a hint for the browser: even if we set specific for a size, browser c
 
 Picture is an instruction for the browser, we tell it to download a given image for a given size:
 
-{% highlight %}
-<picture>
-  <source media="(min-width: 40em)"
-    srcset="big.jpg 1x, big-hd.jpg 2x">
-  <source 
-    srcset="small.jpg 1x, small-hd.jpg 2x">
-  <img src="fallback.jpg" alt="">
-</picture>
+{% highlight c# %}
+	<picture>
+	  <source media="(min-width: 40em)"
+	    srcset="big.jpg 1x, big-hd.jpg 2x">
+	  <source 
+	    srcset="small.jpg 1x, small-hd.jpg 2x">
+	  <img src="fallback.jpg" alt="">
+	</picture>
 {% endhighlight %}
 
 The problem with srcset and picture is that many browser still don't support Responsive images, so we have to make use of our loved and hated Javascript...
  
 #### Using [Polyfills](https://remysharp.com/2010/10/08/what-is-a-polyfill) 
 
-```A polyfill, or polyfiller, is a piece of code (or plugin) that provides the technology that you, the developer, expect the browser to provide natively.```
+_A polyfill, or polyfiller, is a piece of code (or plugin) that provides the technology that you, the developer, expect the browser to provide natively._
 
 If you don't want to write your own Javascript you can use packages that do the work for you: [Picturefill](http://scottjehl.github.io/picturefill/) or [ImagerJs](https://github.com/BBC-News/Imager.js/). One example:
-{% highlight %}
-<div style="width: 240px">
-    <div class="delayed-image-load" data-src="http://placehold.it/{width}" data-alt="alternative text"></div>
-</div>
 
-<script>
-    new Imager({ availableWidths: [200, 260, 320, 600] });
-</script>
+{% highlight c# %}
+	<div style="width: 240px">
+	    <div class="delayed-image-load" data-src="http://placehold.it/{width}" data-alt="alternative text"></div>
+	</div>
+
+	<script>
+	    new Imager({ availableWidths: [200, 260, 320, 600] });
+	</script>
 {% endhighlight %}
 
 #### Client Hints
 
 Rather than having the client deciding, with this approach we communicate to the server the size and let the server decide what image to serve:
 
-{% highlight %}
-GET /img.jpg HTTP/1.1
-	User-Agent: Some Browser
-	Accept: image/jpg
-	CH-DPR: 2.0
-	CH-RW: 160
+{% highlight c# %}
+	GET /img.jpg HTTP/1.1
+		User-Agent: Some Browser
+		Accept: image/jpg
+		CH-DPR: 2.0
+		CH-RW: 160
 {% endhighlight %}
 
 This is also known as _Content Negotiation_.
 
 ### Issue: Download and hide
 
-> Some of the content in the page is not suitable for mobile devices. We hide it, eg set display:none in css.
+> Some of the content in the page is not suitable for mobile devices. We hide it, eg set display none in css.
 
 The problem is that we still are downloading the image. You can see the network using some resource to download it.
 
@@ -127,17 +128,17 @@ Solution: *Conditional loading*, being smart about the downloaded resources
 
 The idea is great but since it isn't supported in browsers, the solution is once again...javascript:
 
-{% highlight %}
-<script>
-function loadReal(img) {
-	if (img.display != "none") {
-		img.onload = null;
-		img.src = img.getAttribute("data-src");
+{% highlight c# %}
+	<script>
+	function loadReal(img) {
+		if (img.display != "none") {
+			img.onload = null;
+			img.src = img.getAttribute("data-src");
+		}
 	}
-}
-</script>
+	</script>
 
-<img src="1px.gif" data-src="book.jpg" alt="A Book" onload="loadReal(this)">
+	<img src="1px.gif" data-src="book.jpg" alt="A Book" onload="loadReal(this)">
 {% endhighlight %}
 
 In this example, the src attribute of the img tag points to a cacheable dummy 1x1 pixel GIF, which all images on the page would point to. The real image is mentioned in the data-src attribute. Once the 1x1 image loads (usually very quickly), the element’s onload event would fire, triggering our loadReal() JavaScript loading function. loadReal() simply tests whether the element is visible, and if so, copies the data-src to the src attribute, making the browser load the real image.
@@ -156,29 +157,29 @@ Solution: Conditional checks for devices:
 
 - Some Javascript code will check media query and select the correct css styles.
 
-{% highlight %}
-<link data-mq="(min-width: 771px)" data-src="/skin/frontend/rwd/default/css/styles_desktop.css"></link>
-<link data-mq="(max-width: 770px)" data-src="/skin/frontend/rwd/default/css/styles_mobile.css" ></link>
-<link data-mq="(min-width: 771px)" data-src="/skin/frontend/rwd/default/css/madisonisland_desktop.css"></link>
-<link data-mq="(max-width: 770px)" data-src="/skin/frontend/rwd/default/css/madisonisland_mobile.css" ></link>
+{% highlight c# %}
+	<link data-mq="(min-width: 771px)" data-src="/skin/frontend/rwd/default/css/styles_desktop.css"></link>
+	<link data-mq="(max-width: 770px)" data-src="/skin/frontend/rwd/default/css/styles_mobile.css" ></link>
+	<link data-mq="(min-width: 771px)" data-src="/skin/frontend/rwd/default/css/madisonisland_desktop.css"></link>
+	<link data-mq="(max-width: 770px)" data-src="/skin/frontend/rwd/default/css/madisonisland_mobile.css" ></link>
 
-<script>
-	  var scripts = document.getElementsByTagName("link");
-	  for(var i=0;i<scripts.length; i++)
-	   {
-		// Test if the Media Query matches
-		var mq = scripts[i].getAttribute("data-mq");
-		if (window.matchMedia(mq).matches)
-		{
-		 // If so, append the new (async) element.
-		 var s = document.createElement("link");
-		 s.rel = 'stylesheet' 
-		 s.type = 'text/css';
-		 s.href = scripts[i].getAttribute("data-src");
-		 document.body.appendChild(s);
-		}
-	   }
-</script>
+	<script>
+		  var scripts = document.getElementsByTagName("link");
+		  for(var i=0;i<scripts.length; i++)
+		   {
+			// Test if the Media Query matches
+			var mq = scripts[i].getAttribute("data-mq");
+			if (window.matchMedia(mq).matches)
+			{
+			 // If so, append the new (async) element.
+			 var s = document.createElement("link");
+			 s.rel = 'stylesheet' 
+			 s.type = 'text/css';
+			 s.href = scripts[i].getAttribute("data-src");
+			 document.body.appendChild(s);
+			}
+		   }
+	</script>
 {% endhighlight %}
 
 The _Critical path_ is an interesting concept that was also mentioned. Use [Chrome Bookmarklet](https://gist.github.com/PaulKinlan/6284142) by Paul Kinlan to calculate the critical path CSS
@@ -191,7 +192,7 @@ It may look similar to m., but it is actually simpler, you just do changes when 
 This can be achieved by the use of cookies: we set a cookie in the client and that is use in the request by the server in order to identify the device and deliver different kind of content. There are problem such as having to update the cookie.
 The solution for that is that your infrastructure can tag the request with the type of device. This is called _Edge side includes_, being the edge the closest point in the CDN cloud to the client.
 
-We have to bear in mind that RESS and client side decissions are complimentary:
+We have to bear in mind that RESS and client side decisions are complimentary:
 
 - Client side decisions are good in the style for example.
 
