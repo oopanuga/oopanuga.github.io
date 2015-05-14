@@ -228,4 +228,4 @@ Similarly we can use [SPOF-O-Matic](https://chrome.google.com/webstore/detail/sp
 The workshop finished by saying that the issues we have been talking are important but there are many other sources of performance issues, being one of the most popular loading too much javascript in the client.
 
 I think that was more than enough to give a taste on this concept. Hope you didn't fall asleep.
-Thanks for reading!
+Thanks for reading! 
