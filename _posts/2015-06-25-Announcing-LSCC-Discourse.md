@@ -19,21 +19,21 @@ However, the stated goals of the project are social rather than technical, to im
 If you go to the [Discourse website](http://www.discourse.org/) you'll find all of the advantages of Discourse compare to traditional forums.
 Features we like the most:
 
-- Default settings quite good and set up is quite comprenhensible. Out-of-the-box it works quite nicely.
+- The Default settings are quite good and the set up is quite comprenhensible. It works quite nicely out-of-the-box.
 
-- If you are writing an answer and some body updates something in the same post, it will automatically appear.
+- If you are writing an answer and somebody updates something in the same post, it will automatically appear.
 
-- Search tool is incredible, so that you don't have to write a post if you easily find a post about it.
+- The Search tool is incredible, so that you don't have to write anything if you easily find another post about it.
 
-- It uses Docker containers so it is very easy to upgrade. Installing the software is very easy with Docker as well.
+- It uses Docker containers so it is very easy to upgrade. Installing the software is very easy with Docker as well. When Discourse was been created, the idea was that you can deploy it and leave it, it will keep on working for years.
 
-Forums work really well for big communities, but it is very difficult to find something and to prioritize some topics. Some people like emails, but emails are not the write tool to talk about a topic, the message gets pollutated so easily in the email chain.
+Forums work really well for big communities, but it is very difficult to find something and to prioritize some topics. Some people like emails, but emails are not the write tool to talk about a topic, the message gets polluted so easily in the email chain.
 
 If you want to listen why Jeff Atwood created Discourse, after creating StackOverflow, you can listen [this podcast](http://hanselminutes.com/406/discourse-and-the-art-of-discussion-with-jeff-atwood) in Hanselminutes.
 
 ## What is the LSCC?
 
-The LSCC (London Software Craftsmanship Community) is one of the greatest software communities in London:
+The *LSCC*, [London Software Craftsmanship Community](http://www.meetup.com/london-software-craftsmanship/) is one of the greatest software communities in London:
 
 > This is a community for those who care and are proud of what they do. For those developers, regardless how experienced they are, who want to improve and master their craft.
 This is a community for those who believe that being average is just not good enough.
@@ -57,14 +57,19 @@ I have been attending to events organized by LSCC since I arrived to London. I f
 If you wonder why we think Discourse is a nice tool, please see the following post:
 
 [http://www.lsccdiscourse.co.uk/t/discourse-why-another-tool/23](http://www.lsccdiscourse.co.uk/t/discourse-why-another-tool/23)
+
 _It is simple but flexible, the UI is great, you can use mark down, it is open source and we own this forum, we can upgrade it or change it.
-In our opinion the great benefit is that it is a place for debate and discussion. Imagine you went to our lastEvening Code and Coffee / Craft Beer and you were having a great debate about what is the best functional language to start learning. Here you can.._
+In our opinion the great benefit is that it is a place for debate and discussion. Imagine you went to our last Evening Code and Coffee / Craft Beer and you were having a great debate about what is the best functional language to start learning. Here you can.._
+
 
 Please let me give you a great example on how Discourse is helping promoting ideas:
 
-```Round Table, 11th June
+_Round Table, 11th June
+
 Asier Barrenetxea suggests a topic for debate, Apprenticeship. After it we decide to start a list of people who want to mentor, and people who need guidance. We started a Discourse post, please click in the following link:
- [http://www.lsccdiscourse.co.uk/t/the-lscc-mentorship/62/31](http://www.lsccdiscourse.co.uk/t/the-lscc-mentorship/62/31)```
+
+[http://www.lsccdiscourse.co.uk/t/the-lscc-mentorship/62/31](http://www.lsccdiscourse.co.uk/t/the-lscc-mentorship/62/31)_
+
 
 This forum has been created to help you as much as you need, to contact the community, to get support from them. 
 We would be really glad if you want to register to it. It is very easy, you can even use your twitter, facebook or google account.
