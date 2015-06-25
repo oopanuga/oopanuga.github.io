@@ -64,11 +64,9 @@ In our opinion the great benefit is that it is a place for debate and discussion
 
 Please let me give you a great example on how Discourse is helping promoting ideas:
 
-_Round Table, 11th June
-
-Asier Barrenetxea suggests a topic for debate, Apprenticeship. After it we decide to start a list of people who want to mentor, and people who need guidance. We started a Discourse post, please click in the following link:
-
-[http://www.lsccdiscourse.co.uk/t/the-lscc-mentorship/62/31](http://www.lsccdiscourse.co.uk/t/the-lscc-mentorship/62/31)_
+> Round Table, 11th June
+Asier Barrenetxea suggests a topic for debate, Apprenticeship. After it we decide to start a list of people who want to mentor, and people who need guidance. We started a Discourse post, please click in the following link: 
+[http://www.lsccdiscourse.co.uk/t/the-lscc-mentorship/62/31](http://www.lsccdiscourse.co.uk/t/the-lscc-mentorship/62/31)
 
 
 This forum has been created to help you as much as you need, to contact the community, to get support from them. 
