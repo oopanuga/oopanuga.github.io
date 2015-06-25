@@ -35,10 +35,8 @@ If you want to listen why Jeff Atwood created Discourse, after creating StackOve
 
 The LSCC (London Software Craftsmanship Community) is one of the greatest software communities in London:
 
-```This is a community for those who care and are proud of what they do. For those developers, regardless how experienced they are, who want to improve and master their craft.
-
+> This is a community for those who care and are proud of what they do. For those developers, regardless how experienced they are, who want to improve and master their craft.
 This is a community for those who believe that being average is just not good enough.
-
 *The Manifesto for Software Craftsmanship*
 As aspiring Software Craftsmen we are raising the bar of professional software development by practicing it and helping others learn the craft. Through this work we have come to value:
 
