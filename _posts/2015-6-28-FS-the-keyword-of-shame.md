@@ -62,10 +62,16 @@ _Look, that is the guy that used "mutable" keyword_.
 Jokes aside, I really like the fact that F# is immutable by default, if you want to be mutable, then you have to treat it differently:
 
 > Erlang, no mutability at all.
+
 > FSharp encourages immutability, you have to work extra to do it mutable.
+
 > CSharp encourages mutability and you have to do something really special to be immutable.
 
 Totally different approaches. Even if you are a C# programmer, learning some functional languages will change the way you program in C#, you will encourage immutability, you will favour composition over assignments.
-With so many different functional languages out there, with different approaches for different paradigms, you can choose to learn a pure functional language, like Haskell. You will have a totally different experience, it will totally be a mind blowing.
-In contrast, you can choose to go for a Hybrid approach where you can still use your same OOP paradigms while starting to play with functional programming.
+With so many different functional languages out there, with different approaches for different paradigms: 
 
+- You can choose to learn a pure functional language, like Haskell. You will have a totally different experience, it will totally be a mind blowing.
+
+- In contrast, you can choose to go for a Hybrid approach where you can still use your same OOP paradigms while starting to play with functional programming.
+
+Either option will take you out of your confort zone and empower your programming weapons.
