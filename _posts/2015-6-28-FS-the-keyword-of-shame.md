@@ -1,6 +1,6 @@
 ---
 layout: post
-title: FSharp's keyword of Shame
+title: FSharp, the keyword of Shame
 ---
 
 We have now NDC Oslo 2015 videos available [here](https://vimeo.com/ndcconferences). I really recommend to take a look because the quality of the talks is amazing as usual, and they cover a broad range of topics that may interesting for you.
@@ -19,7 +19,7 @@ Nevertheless they tend to favour immutability.
 
 In FSharp we can write something like this:
 
-{% highlight f# %}
+{% highlight c# %}
 let max = 100
 printfn "%d" max
 max = 200
@@ -32,7 +32,7 @@ That is, the value of the expression ```max=200``` is evaluated to ```false```.
 In pure functional languages this is not possible at all. But in hybrid languages, there is a way to modify a variable. 
 In F# is with ```<-```, something like this:
 
-{% highlight f# %}
+{% highlight c# %}
 let max = 100
 printfn "%d" max
 max <- 200
@@ -45,7 +45,7 @@ What is the result now? In this case the compiler gets really angry:
 
 ## FSharp, the keyword of shame
 
-{% highlight f# %}
+{% highlight c# %}
 let mutable max = 100
 printfn "%d" max
 max <- 200
