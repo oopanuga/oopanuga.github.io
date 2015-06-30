@@ -3,7 +3,7 @@ layout: post
 title: Evolution of Asynchronous Programming features in the .NET Platform
 ---
 
-> The more patterns you need to use in a 
+> The more patterns you need, the less your framework is helping you.
 
 Even if you normally don't write multithreading applications, sooner or later you will find yourself dealing with some asynchronous programming, 
 e.g. using an HttpClient that returns a async task. 
@@ -222,9 +222,10 @@ Some benefits of this last approach:
 
 - The caller now doesn't rely on the client method, therefore this client can change without impacting the caller.
 
+C# has provide wonderful features to make your code very similar to secuencial code but managing concurrency with a very nice syntax sugar. We may argue that we don't need to worry about what is going on. That's not the case, you still need to know but once you know, you don't need to worry anymore about tedious code.
 
 That's all for now. I hope you found it useful and foremost you are not that scare about asynchronous programming.
-
+Have a great day!
 
 
 _This blog post is based on Venkat [Subramaniam video](https://vimeo.com/68320505) in NDC Conference_.
