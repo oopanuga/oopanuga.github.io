@@ -1,0 +1,95 @@
+---
+layout: post
+title: Evolution of Asynchronous Programming features in the .NET Platform
+---
+
+> The more patterns you need to use in a 
+
+Even if you normally don't write multithreading applications, sooner or later you will find yourself dealing with some asynchronous programming, 
+e.g. using an HttpClient that returns a async task. 
+Multithreading is regularly scaring, it is complex, hard to debug, hard to write. I'll try to make it a bit less scaring for my friends out there.
+
+## Lack of responsiveness
+
+Let's start with a nice simple WPF app. We have a desktop app with a simple button:
+
+{% highlight c# %}
+public partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+    }
+
+    private void Button_DisplayRecords(object sender, RoutedEventArgs e)
+    {
+        recordMatches.Content = "Not Implemeted yet****";
+    }
+}
+{% endhighlight %}
+
+When we click in that button, we want to call the FindMyPast api to get a list of historical record matches:
+    
+{% highlight c# %}
+public class FindMyPastClient
+{
+    public static IList<string> GetRecords(string requestId)
+    {
+        WebClient webClient = new WebClient();
+        string data = webClient.DownloadString("http://api.findmypast.com/recordMatches" + requestId);
+        data = data.Split(new char[] { '\n' })[1];
+        return data.Split(new char[] { ',' });
+    }
+}
+{% endhighlight %}
+
+We open a WebClient, it goes to the web and get a list of hints that we then split.
+Now we are ready to use that in our button:
+
+{% highlight c# %}
+public partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+    }
+    
+    private void Button_DisplayRecords(object sender, RoutedEventArgs e)
+    {
+      IList<string> matches = FindMyPastClient.GetRecords(searchBox.Text);
+      recordMatches.Content = string.Join(", ", matches);
+    }
+}
+{% endhighlight %}
+
+This works, we hit the search box and we get back a list of hints. 
+
+## Making the App responsive in the hard way
+
+The issue there is that the application is not responsive while the it is requesting the data.
+We show that to the Product Manager and she says: _Juan, please fix that, we can't have our users waiting to se their matches_.
+Since I am a clever guy, I search in stackoverlow.com about it and I find out about Threads, then I come with the following solution:
+
+{% highlight c# %}
+private void Button_DisplayRecords(object sender, RoutedEventArgs e)
+{
+  var search = searchBox.Text
+  new Thread(delegate()
+  {
+    IList<string> matches = FindMyPastClient.GetRecords(search);
+    recordMatches.Dispatcher.Invoke(() => recordMatches.Content = string.Join(", ", matches));
+  }).Start();
+}
+{% endhighlight %}
+
+We start a separate Thread to manage the request. Since we had already a thread which is the main thread of the application, we extract the value of the field before the new thread so we avoid locking.
+We also use Dispatcher.Invoke inside the new Thread to update the UI component, this is done by providing a Lambda expression that will run in the UI thread.
+This is working and it is responsive now.
+
+## Using pool of threads
+
+The problem with the previous approach is that we need to be thinking things like: what threads are we in? Could it be locked by other thread?...
+In addition everything is managed by delegate methods that make our code really difficult to write.
+
+
+_This blog post is based on Venkat [Subramaniam video](https://vimeo.com/68320505) in NDC Conference_.
