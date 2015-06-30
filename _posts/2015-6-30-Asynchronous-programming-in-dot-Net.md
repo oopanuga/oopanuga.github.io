@@ -6,7 +6,7 @@ title: Evolution of Asynchronous Programming features in the .NET Platform
 > The more patterns you need, the less your framework is helping you.
 
 Even if you normally don't write multithreading applications, sooner or later you will find yourself dealing with some asynchronous programming, 
-e.g. using an HttpClient that returns a async task. 
+e.g. using an HttpClient that returns an async task. 
 Multithreading is regularly scaring, it is complex, hard to debug, hard to write. I'll try to make it a bit less scaring for my friends out there.
 
 ## Lack of responsiveness
