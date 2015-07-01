@@ -243,3 +243,94 @@ public void PublishBlogPost(string category, string[] contentBlocks, bool addHea
 {% endhighlight %}
 
 Now we have a better encapsulation and our code becomes more readable since our *BlogPost* hides all the internal details that compose it.
+
+## First Class Collections
+
+Let's see the definition of this rule:
+
+> Any class that contains a collection should contain no other member variables.
+
+Oh ss*££$! I have this:
+
+{% highlight c# %}
+public class BlogPost
+{
+    public readonly string[] ContentBlocks;
+    public readonly bool AddHeadline;
+    public readonly string Category;
+}
+{% endhighlight %}
+
+Ok, I will try to follow it, let's create a class for the ContentBlocks:
+
+{% highlight c# %}
+public class ContentBlocks
+{
+    public readonly string[] Blocks;
+}
+
+public class BlogPost
+{
+    public readonly ContentBlocks Content;
+    public readonly bool AddHeadline;
+    public readonly string Category;
+}
+{% endhighlight %}
+
+Now I have to modify the users of that ContentBlock, like this one:
+
+{% highlight c# %}
+public void Publish(BlogPost post)
+{
+    if(post.Category == "News")
+    {
+      return;
+    }
+    
+    contentBlocks.Except(contentBlock[0])
+                 .Foreach(block => writer.WriteBlock(block);
+}
+{% endhighlight %}
+
+{% highlight c# %}
+public void Publish(BlogPost post)
+{
+    if(post.Category == "News")
+    {
+      return;
+    }
+    
+    contentBlocks.Except(post.Content.Blocks[0])
+                 .Foreach(block => writer.WriteBlock(block);
+}
+{% endhighlight %}
+
+## 5. One Dot Per Line
+
+Ouch I have just broken it:
+
+{% highlight c# %}
+post.Content.Blocks[0]
+{% endhighlight %}
+
+Nah, I even didn't like it, I'm breaking the **Tell Don't Ask Principle** since I'm asking for the first element.
+No prob, now we have a *ContentBlocks* class that encapsulates the behaviour of the colletion, let's add a method in the collection to encapsulate that behaviour:
+
+{% highlight c# %}
+public class ContentBlocks
+{
+    private readonly string[] Blocks;
+    
+    public string GetHeadLine()
+    {
+        return Blocks[0];
+    }
+}
+{% endhighlight %}
+
+
+We have also encapsulate the string[] Blocks property now that we don't need it in the outside world. Going back to the problem now we can fix it:
+
+{% highlight c# %}
+post.Content.GetHeadLine()
+{% endhighlight %}
