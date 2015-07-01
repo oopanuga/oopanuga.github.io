@@ -437,4 +437,4 @@ Here we are telling the contentBlocks to do an operation for every of its detail
 ## Summary
 
 If I remember my old code, how many times could I have passed a code review if my reviewer stick to Object Calisthenics?
-You don't need to apply all these principles in your code reviews or when you are programming but if you try to remember then and apply them, your code won't ever be the same. 100% ensured.
+You don't need to apply all these principles in your code reviews or when you are programming but if you try to remember and apply them, your code won't ever be the same. 100% ensured.
