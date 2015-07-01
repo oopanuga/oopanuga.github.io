@@ -359,11 +359,13 @@ We should follow it for any other case. It is a direct use of the [Law of Demete
 ## 6. Don't abbreviate
 
 Why do you want to abbreviate? Is it because *no* is understand by everyone as *number* in your business?
-What if tomorrow we have a new comer and she things this is the word **NO**.
+What if tomorrow we have a new comer and she thinks this is the word **NO**.
 
-*Come on Juan... everybody knows that PPV is Pay Per View?* *Call me stupid but I didn't know because I'm new to your domain*.
+*Come on Juan... everybody knows that PPV is Pay Per View?* 
 
-Nowadays we don't have any problem with memory so you can write something readable. If it is because you want to save some time typing, you can use shortkeys to get the word fetched automatically by your IDE.
+*Call me stupid but I didn't know because I'm new to your domain*.
+
+Nowadays we don't have any problems with memory so we can write something readable. If it is because you want to save some time typing, you can use shortkeys to get the word fetched automatically by your IDE.
 
 
-Sorry guys, I fell like I'm not going to put any example of this rule.
+Sorry guys, I feel like I'm not going to put any example of this rule.
