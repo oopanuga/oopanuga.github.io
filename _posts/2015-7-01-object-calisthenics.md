@@ -3,9 +3,9 @@ layout: post
 title: Object Calisthenics
 ---
 
-I was firstly introduced on **Object Calisthenics** in the CodeRetreat last year. I remember having mind blowing experience, then trying it, then failing, trying again, and the code produced was amazing.
+I was firstly introduced on **Object Calisthenics** in the CodeRetreat last year. I remember having a mind blowing experience, then trying it, then failing, trying again, and the code produced was amazing.
 Since we are going to do an exercise using Object Calisthenics today in a Code Kata, I thought I could explain every of the rules with some actual examples.
-Some of the rules are really difficult to undestand in the beginning. For each of them, I'm going to put an example that breaks that particular rule, and then how to meet it.
+Some of the rules are really difficult to undestand in the beginning. For each of them, I'm going to put an example that breaks that particular rule, and then try to fix it.
 Let's go.
 
 ## 1. Only One Level Of Indentation Per Method
@@ -80,3 +80,99 @@ private void PublishPost(string[] contentBlocks, bool addHeadline)
 
 Now the code became more explicit about its purpose. If we take a look at the first method we have one level of abstraction: managing the category.
 If you want to know how a post is publish you can navigate to *PublishPost* method.
+
+## Don't use ELSE Keyword
+
+Mmmm, let's see, I'm already breaking this one in my solution before:
+
+{% highlight c# %}
+public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
+{
+    //Base level of identation
+    if(category == "News")
+    {
+      PlublishNews(contentBlocks[0]);
+    }
+    else
+    {
+      //First level of identation
+      PublishContentPost(contentBlocks, addHeadline)
+    }
+}
+{% endhighlight %}
+
+Maybe this is too extreme but the problem with *if/else* is that they grow to create a really bad code. It is too easy when you are fixing a bug to add another *if branch* to manage your case. Using if/else also tell us about breaking SRP: normally means that you have several behaviours in one method. 
+
+How do we encapsulate varying behaviour for the same object based on some state? Behavioural patterns come to rescue. The simplest and more common one is the **Strategy Pattern** but you can use the *Null Object pattern* or **Decorator Pattern**. It really depends on the problem. In our current example I see that we are have two clear behaviours, one to publish a header, one to publish the rest of the content. In this case we can try the **Chain of Responsibility**:
+
+{% highlight c# %}
+public interface IPostPublisher
+{
+    int ExecutionOrder { get; }
+    
+    void Publish(string category, bool addHeadline, string[] contentBlocks);
+}
+
+public class HeadLinePublisher : IPostPublisher
+{
+    public int ExecutionOrder
+    {
+        get
+        {
+            return 1;
+        }
+    }
+    
+    public void Publish(string category, bool addHeadLine, string[] contentBlocks)
+    {
+        if(category != "News" || !addHeadLine)
+        {
+          return;
+        }
+        
+        writer.WriteHeadline(contentBlocks[0]);
+    }
+}
+
+public class MainContentPublisher : IPostPublisher
+{
+    public int ExecutionOrder
+    {
+        get
+        {
+            return 2;
+        }
+    }
+    
+    public void Publish(string category, bool addHeadLine, string[] contentBlocks)
+    {
+        if(category == "News")
+        {
+          return;
+        }
+        
+        contentBlocks.Except(contentBlock[0])
+                     .Foreach(block => writer.WriteBlock(block);
+    }
+}
+
+public class BlogPublisher
+{
+    readonly IEnumerable<IPostPublisher> _publishers;
+    
+    public BlogPublisher(IEnumerable<IPostPublisher> publishers)
+    {
+        _publishers = publishers;
+    }
+    
+    public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
+    {
+        _publishers.OrderBy(publisher => publisher.ExecutionOrder)
+                   .Foreach(publisher => publisher.Publish(category, contentBlocks, addHeadline));
+    }
+}
+{% endhighlight %}
+
+We are using chain of responsibility pattern to encapsulate different behaviour. Every behaviour is encapsulated in a handler class with a given execution order. Every handler implements the same interface and it will try to manage the request in its own way. If it can't handle, it delegates to the next handler. From the BlogPublisher point of view, it doesn't know anything about the different handler, it only knows how to delegate.
+
+If you see in order to meet the *No else rule* we introduced a pattern. Maybe it was too much for this simple example, but can you imagine this being applied to bigger cases? Not only the code becomes more elegant and explicit, we also get the advantage that if we need to introduce another type of publisher, we don't need to modify the the BlogPublisher, it is as easy as introducing another implementation of the *IPostPublisher* interface.
