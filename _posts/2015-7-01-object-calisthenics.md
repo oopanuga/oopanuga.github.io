@@ -197,3 +197,49 @@ public class BlogPublisher
 We are using chain of responsibility pattern to encapsulate different behaviour. Every behaviour is encapsulated in a handler class with a given execution order. Every handler implements the same interface and it will try to manage the request in its own way. If it can't handle, it delegates to the next handler. From the BlogPublisher point of view, it doesn't know anything about the different handler, it only knows how to delegate.
 
 If you see in order to meet the *No else rule* we introduced a pattern. Maybe it was too much for this simple example, but can you imagine this being applied to bigger cases? Not only the code becomes more elegant and explicit, we also get the advantage that if we need to introduce another type of publisher, we don't need to modify the the BlogPublisher, it is as easy as introducing another implementation of the *IPostPublisher* interface.
+
+## 3. Wrap All Primitives And Strings
+
+Do you like the following signatures I have so far?
+
+{% highlight c# %}
+void Publish(string category, bool addHeadline, string[] contentBlocks);
+{% endhighlight %}
+
+The first problem is that the list of parameters can grow unexpectily. It is common practice to say that more than 6 input parameters is bad practice. I will go even further:
+
+> If you have more than 2 or 3 input parameters in a method, it probably means that you are doing too much in that method.
+
+There even exists a [Primitive Obsession Antipatern](http://c2.com/cgi/wiki?PrimitiveObsession): using primitive data types to represent domain ideas.
+
+It is very easy to fix, if we know about **Domain Driven Design**, there is something called **Value Objects**  that encapsulates a domain object. Let's try to use it in our example:
+
+{% highlight c# %}
+public class BlogPost
+{
+    public readonly string[] ContentBlocks;
+    public readonly bool AddHeadline;
+    public readonly string Category;
+    
+    
+    public BlogPost(string category, string[] contentBlocks, bool addHeadline)
+    {
+        ContentBlocks = contentBlocks;
+        AddHeadline = addHeadline;
+        Category = category;
+    }
+}
+{% endhighlight %}
+
+Now we can safely pass around a BlogPost value object:
+
+{% highlight c# %}
+public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
+{
+    var post = new BlogPost(category, contentBlocks, addHeadline);
+    _publishers.OrderBy(publisher => publisher.ExecutionOrder)
+               .Foreach(publisher => publisher.Publish(post));
+}
+{% endhighlight %}
+
+Now we have a better encapsulation and our code becomes more readable since our *BlogPost* hides all the internal details that compose it.
