@@ -314,7 +314,7 @@ post.Content.Blocks[0]
 {% endhighlight %}
 
 Nah, I even didn't like it, I'm breaking the **Tell Don't Ask Principle** since I'm asking for the first element.
-No prob, now we have a *ContentBlocks* class that encapsulates the behaviour of the colletion, let's add a method in the collection to encapsulate that behaviour:
+No prob, let's add a method to encapsulate that behaviour:
 
 {% highlight c# %}
 public class ContentBlocks
@@ -326,11 +326,23 @@ public class ContentBlocks
         return Blocks[0];
     }
 }
+
+public class BlogPost
+{
+    public readonly ContentBlocks Content;
+    public readonly bool AddHeadline;
+    public readonly string Category;
+    
+    public string GetHeadLine()
+    {
+        return Content.GetHeadLine();
+    }
+}
+
 {% endhighlight %}
 
-
-We have also encapsulate the string[] Blocks property now that we don't need it in the outside world. Going back to the problem now we can fix it:
+This code smells a bit but hopefully Object Calisthenics will solve the problem with some of the next rules. Going back to the problem now we can fix it:
 
 {% highlight c# %}
-post.Content.GetHeadLine()
+post.GetHeadLine()
 {% endhighlight %}
