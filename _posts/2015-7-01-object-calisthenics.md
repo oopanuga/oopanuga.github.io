@@ -1,3 +1,8 @@
+---
+layout: post
+title: Object Calisthenics
+---
+
 I was firstly introduced on **Object Calisthenics** in the CodeRetreat last year. I remember having mind blowing experience, then trying it, then failing, trying again, and the code produced was amazing.
 Since we are going to do an exercise using Object Calisthenics today in a Code Kata, I thought I could explain every of the rules with some actual examples.
 Some of the rules are really difficult to undestand in the beginning. For each of them, I'm going to put an example that breaks that particular rule, and then how to meet it.
