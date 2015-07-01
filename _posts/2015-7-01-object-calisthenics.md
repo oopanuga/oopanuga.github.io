@@ -346,3 +346,20 @@ This code smells a bit but hopefully Object Calisthenics will solve the problem 
 {% highlight c# %}
 post.GetHeadLine()
 {% endhighlight %}
+
+The **Single Dot per Line** is a tricky one. It doesn't apply to **Fluent Interfaces**, like the following composition of functions:
+
+{% highlight c# %}
+contentBlocks.Except(post.GetHeadLine())
+                 .Foreach(block => writer.WriteBlock(block);
+{% endhighlight %}
+
+We should follow it for any other case. It is a direct use of the [Law of Demeter](http://c2.com/cgi/wiki?LawOfDemeter): Only talk to your immediate friends. In our case a publisher needed to talk to a *post.Content.Blocks[0]*, a totally stranger. Now it only needs to talk to the BlogPost class.
+
+## Don't abbreviate
+
+Why do you want to abbreviate? Is it because *no* is understand by everyone as *number* in your business?
+What if tomorrow we have a new comer and she things this is the word **NO**.
+*Come on Juan... everybody knows that PPV is Pay Per View?* *Call me stupid but I didn't know because I'm new to your domain*.
+
+Sorry guys, I fell like I'm not going to put any example of this rule.
