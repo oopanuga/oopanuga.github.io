@@ -5,7 +5,28 @@ title: Object Calisthenics
 
 I was firstly introduced on **Object Calisthenics** in the CodeRetreat last year. I remember having a mind blowing experience, then trying it, then failing, trying again, and the code produced was amazing.
 Since we are going to do an exercise using Object Calisthenics today in a Code Kata, I thought I could explain every of the rules with some actual examples.
-Some of the rules are really difficult to undestand in the beginning. For each of them, I'm going to put an example that breaks that particular rule, and then try to fix it.
+
+This is the full list of rules:
+
+1. Only One Level Of Indentation Per Method
+
+2. Don't Use The ELSE Keyword
+
+3. Wrap All Primitives And Strings
+
+4. First Class Collections
+
+5. One Dot Per Line
+
+6. Don't Abbreviate
+
+7. Keep All Entities Small
+
+8. No Classes With More Than Two Instance Variables
+
+9. No Getters/Setters/Properties
+
+Some of the rules are really difficult to undestand in the beginning. Therefore for each of them, I'm going to put an example that breaks that particular rule, and then try to fix it.
 Let's go.
 
 ## 1. Only One Level Of Indentation Per Method
