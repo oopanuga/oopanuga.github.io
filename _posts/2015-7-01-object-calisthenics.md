@@ -367,5 +367,74 @@ What if tomorrow we have a new comer and she thinks this is the word **NO**.
 
 Nowadays we don't have any problems with memory so we can write something readable. If it is because you want to save some time typing, you can use shortkeys to get the word fetched automatically by your IDE.
 
-
 Sorry guys, I feel like I'm not going to put any example of this rule.
+
+## 7. Keep All Entities Small
+
+This is quiet related to **Single Responsibility Principle**. In general if your methods and entities are big, they will be hard to read, undestand and therefore to maintain.
+
+## 8. No Classes With More Than Two Instance Variables
+
+I think we are breaking this rule already, let's see the BlogPost class:
+
+{% highlight c# %}
+public class BlogPost
+{
+    public readonly string[] ContentBlocks;
+    public readonly bool AddHeadline;
+    public readonly string Category;
+}
+{% endhighlight %}
+
+Why does this rule enforce 2 instance variables? Two is an arbitrary number but the main idea is two force you to decouple your classes. You will end up with high cohesion and encapsulation in your classes.
+I think we can group *AddHeadline* and *Category* into a new class:
+
+{% highlight c# %}
+public class PostAttributes
+{
+    public readonly bool AddHeadline;
+    public readonly string Category;
+}
+
+public class Post
+{
+    public readonly ContentBlocks Content;
+    public readonly PostAttributes Attributes;
+}
+{% endhighlight %}
+
+I feel like we have a better encapsulation now.
+
+## 9. No Getters/Setters/Properties
+
+Setters and getters break encapsulation, it allows to modify the state of an object and the so-called start to appear.
+This is quite related to the [Tell Don't Ask Principle](http://c2.com/cgi/wiki?TellDontAsk). I don't think we have broken it but let's go back for a second to the original implementation:
+
+{% highlight c# %}
+public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
+{
+    //****//
+      
+      for (int i = 1; i < contentBlocks.Lenght - 1; i++) 
+      {
+        writer.WriteBlock(contentBlocks[i]);
+      }
+    }
+    
+    //****//
+}
+{% endhighlight %}
+
+When we did *contentBlocks[i]* we have used a get method. The encapsulation of contentBlocks since to be broken, we are using the internal details of the object to do something. TDA principle totally violated here.
+
+Our refactoring solved that problem:
+{% highlight c# %}
+contentBlocks.Foreach(block => writer.WriteBlock(block);
+{% endhighlight %}
+
+Here we are telling the contentBlocks to do an operation for every of its details. We don't need to know about the lenght or the *i-th* element. 
+
+## Summary
+
+If I remember my old code, how many times could I have passed a code review if my reviewer stick to Object Calisthenics?
+You don't need to apply all these principles in your code reviews or when you are programming but if you try to remember then and apply them, your code won't ever be the same. 100% ensured.
