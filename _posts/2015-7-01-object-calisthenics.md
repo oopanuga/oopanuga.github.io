@@ -8,7 +8,7 @@ I thought I could explain the rules of Object Calithenics in case you participat
 
 This is the full list of rules:
 
-**1. Only One Level Of Indentation Per Method
+**1. Only One Level Of Indentation Per Method**
 
 2. Don't Use The ELSE Keyword
 
