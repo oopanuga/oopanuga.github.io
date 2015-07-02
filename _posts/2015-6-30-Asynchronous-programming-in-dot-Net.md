@@ -66,9 +66,11 @@ This works, we hit the search box and we get back a list of hints.
 
 ## Making the App responsive in the hard way
 
-The issue there is that the application is not responsive while the it is requesting the data.
-We show that to the Product Manager and she says: _Juan, please fix that, we can't have our users waiting to se their matches_.
-Since I am a clever guy, I search in stackoverlow.com about it and I find out about Threads, then I come with the following solution:
+The issue there is that the application is blocked while we are requesting the data (if we try to move the window it doesn't work).
+Let's pretend that we show that to the Product Manager and she says: 
+_Juan, please fix that, we can't have our users waiting to se their matches_.
+
+I search in Google about it and I find Threads, and I come up with the following solution:
 
 {% highlight c# %}
 private void Button_DisplayRecords(object sender, RoutedEventArgs e)
@@ -82,17 +84,18 @@ private void Button_DisplayRecords(object sender, RoutedEventArgs e)
 }
 {% endhighlight %}
 
-We start a separate Thread to manage the request. Since we had already a thread which is the main thread of the application, we extract the value of the field before the new thread so we avoid locking.
-We also use Dispatcher.Invoke inside the new Thread to update the UI component, this is done by providing a Lambda expression that will run in the UI thread.
-This is working and it is responsive now.
+We start a separate Thread to manage the request. Since we had the main application thread, we extract the value of the field of the UI, before our new thread start executing.
+
+We also use *Dispatcher.Invoke* inside the new Thread to update the UI component. We provide a Lambda expression that will run in the UI thread. This is working and it is responsive now. I can move around the window while requesting the data.
 
 ## Using pool of threads, Task objects
 
-The problem with the previous approach is that we need to be thinking things like: what threads are we in? Could it be locked by other thread?...
+We get another User Story, we need to add another button and another search field. Initially I try to use the same approach. The problem with that is: we need to think on what threads are we in? Could it be locked by other thread?...
 In addition everything is managed by delegate methods that make our code really difficult to write and debug.
-The main issue really is predictability, this code can fail in different ways in different machines because we don't know about what threads are running in a given machine.
 
-I google again and some results talks about using something called _Tasks_. Let's see if we can use that weird thing:
+The main issue really is **predictability**, this code can fail in different ways in different machines, we don't know what threads are running in a given machine.
+
+I google again and I end up in StackOverflow, where people talk about something called **Tasks**. Let's see if we can use that weird thing:
 
 {% highlight c# %}
 private void Button_DisplayRecords(object sender, RoutedEventArgs e)
@@ -109,14 +112,11 @@ private void DisplayResult(object result)
 }
 {% endhighlight %}
 
-We encapsulated the request into a nice Task object rather than starting a new Thread. We don't have to worry about what thread we are in, we let the processor manage this task in a pool of threads, the task will be run in the next thread available. 
-This leads to a better resource ussage.
-
-We still have the issue though with the lock of the UI to update it. Therefore we still need to use the Dispatcher.Invoke.
+Rather than starting a new Thread, we encapsulate the request into a nice Task object. Now we don't have to worry about what thread we are in, simply we let the processor manage our task in a pool of threads, the task will be running in the next thread available. This leads to a better resource ussage.
 
 ## Using _async_ and _await_
 
-Now let's compare for a second the first non-responsive solution with this last solution:
+Let's compare for a second the first non-responsive solution with this last solution:
 
 **Non-responsive:**
 
@@ -145,10 +145,9 @@ private void DisplayResult(object result)
 }
 {% endhighlight %}
 
-The functionality is the same but, two lines of codes have suddenly become 5. The complexity of the code has increased as soon as we have introduce asynchronous features.
-We can see also we are going back and forth from the main thread to other threads. 
+The functionality is the same but, two lines of code have suddenly become 5. The complexity of the code has increased as soon as we have introduce asynchronous features.
 
-What if we could let the compiler manage all that complexity? Fortunately we can do that since .Net 4.5 introduced **async** and **await**:
+What if we could let the compiler manage all that complexity and our code became simple again? Fortunately .Net 4.5 provides some syntactic sugar:  **async** and **await** keywords:
 
 {% highlight c# %}
 private async void Button_DisplayRecords(object sender, RoutedEventArgs e)
@@ -159,10 +158,15 @@ private async void Button_DisplayRecords(object sender, RoutedEventArgs e)
 }
 {% endhighlight %}
 
-We create a task to do some asynchronous operation and the main thread **awaits** for it to be finished. Then we can update things in the UI.
-The **async** keyword tells the compiler, please run asynchronously what you find inside the method. In other words, an async method will run in as many threads as required.
+We still use the task but the main thread **await** for this task to be finished. Then it can go on and update things in the UI. 
 
-Just for today, I'll put some comments inside the method to understand what the compiler does:
+The **async** keyword tells the compiler: 
+
+*This method is async, please run asynchronously what you find inside it.*
+
+The compiler will run this method in as many threads as required.
+
+I'll put some comments inside the method to understand what the compiler does:
 
 {% highlight c# %}
 private async void Button_DisplayRecords(object sender, RoutedEventArgs e)
@@ -178,12 +182,16 @@ private async void Button_DisplayRecords(object sender, RoutedEventArgs e)
 }
 {% endhighlight %}
 
-This code is back to simplicity like it was in the first solution, except that it will be asynchronous and so our app will be responsive.
+This code is back to simplicity like it was in the first solution, except that it will be asynchronous and our app will be responsive.
 
 ## Abstracting async
 
-This later solution is great but the UI side is managing the asynchronous part. Let's focus now on the _FindMyPastClient_. If you were the backend developer you would to make your colleagues' lives easier, you'd take care of the asynchronous part so your friends in the UI would have a better time creating a nicer FrontEnd without having to worry about it.
-Fortunately that is the case, Phil Hoy the architect has done a code review for their FindMyPastClient, they have created a new method:
+This later solution is great but the UI is carrying all the asynchronous complexity in its shoulders. 
+Fortunately Phil Hoy, the architect, has done a code review for the *FindMyPastClient*, he says:
+
+> Please embrace the async features in the _FindMyPastClient_ api. Then the UI guys don't have to take care of all the heavy dutty.
+
+Let's try to make Phil happy:
 
 {% highlight c# %}
 public class FindMyPastClient
@@ -222,10 +230,14 @@ Some benefits of this last approach:
 
 - The caller now doesn't rely on the client method, therefore this client can change without impacting the caller.
 
-C# has provide wonderful features to make your code very similar to secuencial code but managing concurrency with a very nice syntax sugar. We may argue that we don't need to worry about what is going on. That's not the case, you still need to know but once you know, you don't need to worry anymore about tedious code.
+C# has provided wonderful features to make your code very similar to secuencial code, but managing concurrency with a very nice syntax sugar. 
 
-That's all for now. I hope you found it useful and foremost you are not that scare about asynchronous programming.
-Have a great day!
+One may argue that **async and await** hide everything and people don't have to understand what's going on. 
+In my opinion, you still need to know the basics but once you have understand, then you don't need to worry anymore about tedious code and let the compiler generating that for you.
+
+I hope you found this article useful, foremost you are not that scared anymore about asynchronous programming in C#. I feel like I'm going to use these concepts write now:)
+
+**await new Task(() => Console.Log("Have a great day!"));**
 
 
 _This blog post is based on Venkat [Subramaniam video](https://vimeo.com/68320505) in NDC Conference_.
