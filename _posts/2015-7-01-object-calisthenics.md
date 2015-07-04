@@ -160,6 +160,26 @@ public interface IPostPublisher
 }
 {% endhighlight %}
 
+Then the main publisher can do the following:
+
+{% highlight c# %}
+public class BlogPublisher
+{
+    readonly IEnumerable<IPostPublisher> _publishers;
+    		     
+    public BlogPublisher(IEnumerable<IPostPublisher> publishers)
+    {		     
+        _publishers = publishers;
+    }
+    		     
+    public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
+    {		     
+        _publishers.OrderBy(publisher => publisher.ExecutionOrder)
+                   .Foreach(publisher => publisher.Publish(category, contentBlocks, addHeadline));		
+    }
+}
+{% endhighlight %}
+
 After [Mr. Samir Talwar](http://careers.stackoverflow.com/uk/SamirTalwar) has done an excelent [code review of this post](http://45.55.130.240/t/post-about-object-calisthenics/124). He proposes that **Strategy pattern** and **polymorphism** can make a simpler and better code. Let's try to pass his code review. Let's define an **IContent** with a simple **Publish** method.
 
 {% highlight c# %}
