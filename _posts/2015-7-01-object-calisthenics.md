@@ -38,32 +38,32 @@ Some of the rules are really difficult to undestand in the beginning. Sometimes 
 {% highlight c# %}
 public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
 {
-    //Base level of identation
+    //Base level of indentation
     IMarkdownWriter writer = new MarkdownWriter();
     if(category == "News")
     {
-      //First level of identation
+      //First level of indentation
       writer.WriteBlock(contentBlocks[0]);
     }
     else
     {
-      //First level of identation
+      //First level of indentation
       if(addHeadline)
       {
-        //Second level of identation => rule broken
+        //Second level of indentation => rule broken
         writer.WriteHeadline(contentBlocks[0]);
       }
       
-      for (int i = 1; i < contentBlocks.Lenght - 1; i++) 
+      for (int i = 1; i < contentBlocks.Length - 1; i++) 
       {
-        //Second level of identation => rule broken
+        //Second level of indentation => rule broken
         writer.WriteBlock(contentBlocks[i]);
       }
     }
 }
 {% endhighlight %}
 
-Too many levels of identation is often seen as not maintainable code. Firstly it is not very readable. Most importantly, it tells you that you are starting to break **Single Responsibility Principle**.
+Too many levels of indentation is often seen as not maintainable code. Firstly it is not very readable. Most importantly, it tells you that you are starting to break **Single Responsibility Principle**.
 This also relates to the [**Single Level of Abstraction Principle**](http://javflores.github.io/NDC-Oslo-CoreSoftwareDesignPrinciples/): 
 
 > A method should nicely compose things at a single level of abstraction. If you need more info about a certain abstraction you can go to that method and see the next level of abstraction.
@@ -77,29 +77,29 @@ One useful technique to split this up is to use [Extract Method](http://refactor
 {% highlight c# %}
 public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
 {
-    //Base level of identation
+    //Base level of indentation
     if(category == "News")
     {
-      PlublishNews(contentBlocks[0]);
+      PublishNews(contentBlocks[0]);
     }
     else
     {
-      //First level of identation
-      PublishContentPost(contentBlocks, addHeadline)
+      //First level of indentation
+      PublishContentPost(contentBlocks, addHeadline);
     }
 }
 
-private void PublishPost(string[] contentBlocks, bool addHeadline)
+private void PublishContentPost(string[] contentBlocks, bool addHeadline)
 {
-    //Base level of identation
+    //Base level of indentation
     IMarkdownWriter writer = new MarkdownWriter();
     if(addHeadline)
     {
-      //First level of identation
-      PlublishNews(contentBlocks[0]);
+      //First level of indentation
+      PublishNews(contentBlocks[0]);
     }
     
-    contentBlocks.Except(contentBlock[0])
+    contentBlocks.Except(post.Content.Blocks[0])
                  .Foreach(block => writer.WriteBlock(block);
 }
 {% endhighlight %}
@@ -114,26 +114,42 @@ Mmmm, let's see, I'm already breaking this one in my solution before:
 {% highlight c# %}
 public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
 {
-    //Base level of identation
     if(category == "News")
     {
-      PlublishNews(contentBlocks[0]);
+        PublishNews(contentBlocks[0]);
     }
     else
     {
-      //First level of identation
-      PublishContentPost(contentBlocks, addHeadline)
+        PublishContentPost(contentBlocks, addHeadline);
     }
 }
 {% endhighlight %}
 
-Maybe this is too extreme, but the problem with *if/else* is that they grow to create a really bad code. It is too easy when you are fixing a bug to add another *if branch* to manage your case. Also using *if/else* can be seen as a code smell around breaking **Single Responsibility**: it normally means that you are doing too much in your method, that you have several behaviours in one method.
+Maybe this is too extreme, but the problem with *if/else* is that they grow to create a really bad code. It is too easy when you are fixing a bug to add another *if branch* to manage your case. 
+
+Let's try to fix it with the nice **multiple return statements** trick:
+
+{% highlight c# %}
+public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
+{
+    //Base level of indentation
+    if(category == "News")
+    {
+        PublishNews(contentBlocks[0]);
+        return;
+    }
+    
+    PublishContentPost(contentBlocks, addHeadline);
+}
+{% endhighlight %}
+
+Now the code is more readable, if/else checks do degrade readability.
+
+This example is really simple but also sometimes, using *if/else* can be seen as a code smell around breaking **Single Responsibility**: it normally means that you are doing too much in your method, that you have several behaviours in one method. Using the former trick doesn't really solve that problem.
 
 How do we encapsulate varying behaviour for the same object based on some state? Behavioural patterns come to rescue. The more common one is **Strategy Pattern**, but you can also use the **Null Object pattern** or **Decorator Pattern**. It really depends on the problem. 
 
-In our current example I see that we clearly have two behaviours, one to publish a headline of the post, one to publish the rest of the content. In this case we can try another *Behavioural pattern*, the [Chain of Responsibility](https://github.com/iluwatar/java-design-patterns#chain-of-responsibility):
-
-I'm going to create a common interface that will define the behaviour:
+In our current example I see that we clearly have two behaviours, one to publish a headline of the post, one to publish the rest of the content. In this case we can try another *Behavioural pattern*, the [Chain of Responsibility](https://github.com/iluwatar/java-design-patterns#chain-of-responsibility), by creating a common interface that will define the behaviour:
 
 {% highlight c# %}
 public interface IPostPublisher
@@ -144,80 +160,101 @@ public interface IPostPublisher
 }
 {% endhighlight %}
 
-We see that the behaviour is defined by **Publish** method. There is also an **Execution Order** that will define when a given implementation of the behaviour will be executed.
-
-Now let's create the two different implementations of the behaviour:
+After [Mr. Samir Talwar](http://careers.stackoverflow.com/uk/SamirTalwar) has done an excelent [code review of this post](http://45.55.130.240/t/post-about-object-calisthenics/124). He proposes that **Strategy pattern** and **polymorphism** can make a simpler and better code. Let's try to pass his code review. Let's define an **IContent** with a simple **Publish** method.
 
 {% highlight c# %}
-public class HeadLinePublisher : IPostPublisher
+public interface IContent
 {
-    public int ExecutionOrder
+    public void Publish();
+}
+{% endhighlight %}
+
+Now two implementations of that interface:
+
+{% highlight c# %}
+public class Headline : IContent
+{
+    readonly string Content;
+    readonly IMarkdownWriter _writer;
+    
+    public Headline(string[] fullContent, IMarkdownWriter writer)
     {
-        get
-        {
-            return 1;
-        }
+        _writer = writer;
+        
+        Content = fullContent[0];
     }
     
-    public void Publish(string category, bool addHeadLine, string[] contentBlocks)
+    public void Publish()
     {
-        if(category != "News" || !addHeadLine)
-        {
-          return;
-        }
-        
-        writer.WriteHeadline(contentBlocks[0]);
+        _writer.WriteBlock(Content);
     }
 }
 
-public class MainContentPublisher : IPostPublisher
+public class MainContent : IContent
 {
-    public int ExecutionOrder
+    readonly string[] Content;
+    readonly IMarkdownWriter _writer;
+    
+    public MainContent(string[] fullContent, IMarkdownWriter writer)
     {
-        get
-        {
-            return 2;
-        }
+        _writer = writer;
+        
+        Content = fullContent.Except(fullContent[0]);
     }
     
-    public void Publish(string category, bool addHeadLine, string[] contentBlocks)
+    public void Publish()
     {
-        if(category == "News")
-        {
-          return;
-        }
-        
-        contentBlocks.Except(contentBlock[0])
-                     .Foreach(block => writer.WriteBlock(block);
+        Content.Foreach(block => writer.WriteBlock(block);
     }
 }
 {% endhighlight %}
 
-We see that the implementations try to check if they can handle, if they can't, they just return. 
-Now the **BlogPublisher** doesn't need to know anything about the different handler, it only invokes the behaviours in the given order:
+Let's create a factory for these *IContent* classes:
 
 {% highlight c# %}
-public class BlogPublisher
+public class ContentFactory()
 {
-    readonly IEnumerable<IPostPublisher> _publishers;
-    
-    public BlogPublisher(IEnumerable<IPostPublisher> publishers)
+    public IList<IContent> Create(string category, string[] contentBlocks, bool addHeadline)
     {
-        _publishers = publishers;
+        var allContent = new List<IContent>();
+        if(ShoulCreateHeadLine(category, addHeadline))
+        {
+            allContent.Add(new Headline(contentBlocks));
+        }
+        
+        if(!IsNews(category))
+        {
+            allContent.Add(new MainContent(contentBlocks));
+        }
+        
+        return allContent;
     }
     
-    public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
+    private bool ShoulCreateHeadLine(string category, bool addHeadline)
     {
-        _publishers.OrderBy(publisher => publisher.ExecutionOrder)
-                   .Foreach(publisher => publisher.Publish(category, contentBlocks, addHeadline));
+        return IsNews(category) || addHeadLine;
+    }
+    
+    private bool IsNews(string category)
+    {
+        return category == "News";
     }
 }
 {% endhighlight %}
 
-In this case, in order to meet the **No Else rule** we have introduced a pattern. 
-Maybe it was too much for this simple example, but normally the magnitude of the problem is not that small.
+Now the **BlogPublisher** can call the Factory, and invoke the Publish method for every **IContent**:
 
-In those terrible cases with methods with 9 *if branches*, using this rule, not only produces a more elegant and explicit  code, but also promotes a more maintainable code. 
+{% highlight c# %}
+public void PublishBlogPost(string category, string[] contentBlocks, bool addHeadline)
+{
+    var allContent = _contentFactory.Create(category, contentBlocks, addHeadline);
+    allContent.Foreach(content => content.Publish());
+}
+{% endhighlight %}
+
+In this case, in order to meet the **No Else rule** we have introduced a pattern. It was probably too much for this simple example, but the point was that this simple rule enforces us to think deeper in the code and come up with better approaches.
+
+In those terrible cases with methods with 9 *if branches*, using this rule not only produces a more elegant and explicit  code, but also promotes a more maintainable code. 
 In our case if in the future we have another type of *Publisher*, we won't need to modify the *BlogPublisher*, it will be as easy as introducing another implementation of the *IPostPublisher* interface. Our code will be **Open for Extension - Closed for Modification**
 
 ## 3. Wrap All Primitives And Strings
@@ -422,7 +459,7 @@ public void PublishBlogPost(string category, string[] contentBlocks, bool addHea
 {
     //****//
       
-      for (int i = 1; i < contentBlocks.Lenght - 1; i++) 
+      for (int i = 1; i < contentBlocks.Length - 1; i++) 
       {
         writer.WriteBlock(contentBlocks[i]);
       }
@@ -439,7 +476,7 @@ Our refactoring solved that problem:
 contentBlocks.Foreach(block => writer.WriteBlock(block);
 {% endhighlight %}
 
-Here we are telling the contentBlocks to do an operation for every of its details. We don't need to know about the lenght or the *i-th* element. 
+Here we are telling the contentBlocks to do an operation for every of its details. We don't need to know about the length or the *i-th* element. 
 
 ## Summary
 
