@@ -85,7 +85,6 @@ public class HeadLineBlogPostFactory : BlogPostFactory
   }
 }
 
-{% highlight c# %}
 public class MassiveBlogPostFactory : BlogPostFactory
 {
   public override BlogPost CreateItem(DateTime date)
