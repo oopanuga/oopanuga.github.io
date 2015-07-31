@@ -191,3 +191,9 @@ _If I was an anal I would have not discussed with then the code review._
 _I wouldn't have gotten to a common understanding of the problem and a solution._ 
 
 _I wouldn't have gone to do the fix together and show them a technique that they thought it was impossible._
+
+At the end of this conversation I feel bad, I haven't told anything personal to anyone, it was all about the code. But I was an anal, maybe I was an anal? I always try to get the balance right, being dogmatic - being pragmatic.
+Slowly I feel better, I think I have done a professional work, I have mentor a couple of colleagues on new techniques and I have learnt a new lesson about how to operate in this kind of situations.
+
+Because at the end of the day is all about trying to get better.
+Thanks for reading!
