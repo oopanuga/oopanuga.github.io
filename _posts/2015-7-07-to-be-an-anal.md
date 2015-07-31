@@ -48,7 +48,6 @@ public class HeadLineBlogPostFactory : IBlogPostFactory
   }
 }
 
-{% highlight c# %}
 public class MassiveBlogPostFactory : IBlogPostFactory
 {
   public BlogPost CreateItem(DateTime date)
