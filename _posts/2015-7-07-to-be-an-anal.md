@@ -102,9 +102,9 @@ The first thing I think is, *inheritance?*. It's been a lot time since I last us
 Here is my code review:
 
 ----
-_1. I totally see the point of refactoring out the duplicated functionality but I don't see inheritance as the best match in here. Normally I favor composition over inheritance so I can easier extend the functionality later on. Most of the times delegation is a better approach. Happy to discuss this with you._
++ _I totally see the point of refactoring out the duplicated functionality but I don't see inheritance as the best match in here. Normally I favor composition over inheritance so I can easier extend the functionality later on. Most of the times delegation is a better approach. Happy to discuss this with you._
 
-_2. This class doesn't have any test class? I think you should have refactored the tests after refactoring the logic. This will make the code easier to maintain._
++ _ This class doesn't have any test class? I think you should have refactored the tests after refactoring the logic. This will make the code easier to maintain._
 
 
 ## 29-07-2015 4.00 PM 
