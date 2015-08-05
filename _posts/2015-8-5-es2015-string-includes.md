@@ -3,9 +3,9 @@ layout: post
 title: ES2015, string includes
 ---
 
-Today I come with a little but useful tip if you are working with ECMAScript 2015 (ES6).
+Today I wanted to talk you about a little but useful feature in *ECMAScript 2015* (aka ES6).
 
-I'm using that in my pet project, so far a much nicer experience. Currently I'm working with the registration screen, here is how it looks so far:
+I'm using the new Javascript in my pet project, so far it's been a much nicer experience. Currently I'm working with the registration screen, here is how it looks so far:
 
 ![Image description](/images/registrationES6includes.jpg)
 
@@ -51,16 +51,7 @@ let RegistrationForm = React.createClass({
                     <h2 className="form-signin-heading">register</h2>
                     <div className="main-login-form">
                         <div className="login-group">
-                            <div className="form-group">
-                                <input type="text" className="form-control" id="reg_username" name="reg_username" placeholder="user name" onChange={this.handleUserNameEntered} />
-                            </div>
-                            <div className="form-group">
-                                <input type="password" className="form-control" id="reg_password" name="reg_password" placeholder="password" onChange={this.handlePasswordEntered} />
-                            </div>
-                            <div className="form-group">
-                                <input type="password" className="form-control" id="reg_password_confirm" 
-                                    name="reg_password_confirm" placeholder="confirm password" onChange={this.handlePasswordConfirmEntered} />
-                            </div>
+                            //All the fields
                             <div className="form-group">
                                 <input type="text" className="form-control" id="reg_email" name="reg_email" placeholder="email" onChange={this.handleEmailEntered} />
                             </div>
