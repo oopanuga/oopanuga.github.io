@@ -18,46 +18,23 @@ import React from 'react';
 let RegistrationForm = React.createClass({
     handleNext() {
         //Need to implement this
-    },    
-
-    handleUserNameEntered(e) {
-       this.setState({userName: e.target.value});
     },
-
-    handlePasswordEntered(e) {
-       this.setState({password: e.target.value});
-    },
-
-    handlePasswordConfirmEntered(e) {
-       this.setState({passwordConfirm: e.target.value});
-    },
-
+    
     handleEmailEntered(e) {
        this.setState({email: e.target.value});
     },
 
     getInitialState() {
         return {
-            email: '',
-            password: '',
-            passwordConfirm: '',
-            userName: ''
+            email: ''
         };
     },
 
     render() {
         return (                    
-                <form id="register-form" className="form-signin registration-form" >
-                    <h2 className="form-signin-heading">register</h2>
-                    <div className="main-login-form">
-                        <div className="login-group">
-                            //All the fields
-                            <div className="form-group">
-                                <input type="text" className="form-control" id="reg_email" name="reg_email" placeholder="email" onChange={this.handleEmailEntered} />
-                            </div>
-                        </div>
-                    </div>
-                    <a className="btn btn-lg btn-primary btn-block" onClick={this.handleNext}>Next</a>
+                <form id="register-form">
+                	<input type="text" onChange={this.handleEmailEntered} />
+                	<a onClick={this.handleNext}>Next</a>
                 </form>
         );
     }
