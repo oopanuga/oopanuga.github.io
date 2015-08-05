@@ -1,17 +1,17 @@
 ---
 layout: post
-title: To be an an anal, story of a code review
+title: To be an anal, story of a code review
 ---
 
 ## 30-07-2015 9.00 AM 
 
-I arrive to the office like any other day, I have just run to there like any other day. I am going to have a shower when another Technical Lead tells me:
+I arrive to the office, I have just run to there like any other day. I am going to have a shower when another Technical Lead tells me:
 
 _-Could I talk to you for a moment? It is about the code review you did yesterday for my team, you are being an anal in this code._
 
 _- Excuse me, an anal?_
 
-_- Yes, the whole team thinks like that. Your comments are minor details and we don't have time to fix that. We will add a refactoring ticket later on but we need to get this work finished. We have been waiting for your code review a lot and now we get this code review. If you keep on doing like this we are not going to send you any code review._
+_- Yes, the whole team thinks like that. Your comments are minor details and we don't have time to fix that. We will add a refactoring ticket later on but we need to get this work finished. We have been waiting for your code review a lot. If you keep on being an anal we are not going to send you any code review._
 
 I start sweating, what's going on? Juan Antonio, you don't even know what to be an anal is, certainly not something good.
 I search for the definition. Urban dictionary:
@@ -104,7 +104,7 @@ Here is my code review:
 ----
 + _I totally see the point of refactoring out the duplicated functionality but I don't see inheritance as the best match in here. Normally I favor composition over inheritance so I can easier extend the functionality later on. Most of the times delegation is a better approach. Happy to discuss this with you._
 
-+ _ This class doesn't have any test class? I think you should have refactored the tests after refactoring the logic. This will make the code easier to maintain._
++ _This class doesn't have any test class? I think you should have refactored the tests after refactoring the logic. This will make the code easier to maintain._
 
 
 ## 29-07-2015 4.00 PM 
