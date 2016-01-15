@@ -10,7 +10,7 @@ As a functional programming newbie and someone that has done OOP for a few years
 Today I wanted to show how we can use the power of pattern matching to rethink how we define functions when we are writing code in Functional Programming.
 
 
-#### What is Pattern Matching?
+## What is Pattern Matching?
 
 First things first, let's see what pattern matching is. In programming we typically assign values to a variable with an ```=``` sign:
 {% highlight c# %}
@@ -30,7 +30,7 @@ That's what it is in Elixir:
 {% endhighlight %}
 The only difference here is that Elixir will also solve the equation for us.
 
-#### Pattern Matching in Functions
+## Pattern Matching in Functions
 
 Elixir will try to match a function call to a specific implementation:
 
@@ -50,7 +50,7 @@ SimpleMaths.sum([1, 2, 3])
 Here we provide two definitions for ```sum``` function. When we pass in an empty list, Elixir will pattern match into the second definition and return a 0.
 When we pass in a list, it will pattern match the parameter and get the head and the tail. Here we are simply accumulating the values on the list in order to perform the sum.
 
-#### Using Functional Programming idioms
+## Using Functional Programming idioms
 
 I remember when I started learning English, I learnt the grammar and vocabulary to make simple structures.
 Then I tried to build more complex structures with the former simple structures. In order to do that I applied ideas and concepts that I knew from my mother tongue into my new language. Life was so good. 
