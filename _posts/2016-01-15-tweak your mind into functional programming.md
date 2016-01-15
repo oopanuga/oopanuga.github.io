@@ -18,7 +18,7 @@ var x = "Elixir" + "is great";
 {% endhighlight %}
 
 Now, remember what ```=``` sign was in your Math class:
-{% highlight %}
+{% highlight c# %}
 x + 1 = 3
 {% endhighlight %}
 That means the two terms on either side of the ```=``` sign _are equivalent_. 
