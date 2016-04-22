@@ -17,22 +17,22 @@ avatar: https://raw.githubusercontent.com/javicaria/javicaria.github.io/master/i
 
 # Includes an icon in the footer for each username you enter
 footer-links:
-  email: javicaria@ingenieros.com
-  github: javicaria
-  linkedin: javicaria
+  email: oopanuga@gmail.com
+  github: oopanuga
+  linkedin: oopanuga
   rss: followMe
-  twitter: javicaria
+  twitter: oopanuga
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
 
 # Your disqus shortname, entering this will enable commenting on posts
-disqus: javicariagithubio
+disqus: oopanugagithubio
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics: UA-2110908-1
+google_analytics: # GA code"
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: http://javicaria.github.io
+url: http://oopanuga.github.io
 
 # If you're hosting your site at a Project repository on GitHub pages 
 # (http://yourusername.github.io/repository-name)
