@@ -5,9 +5,9 @@ permalink: /about/
 ---
 
 Hi there! I´m Oluwaseun Opanuga. 
-I'm a very passionate software developer and I enjoy creating solutions to problems. I'm very big on quality and a strong advocate for clean and well written software that works. 
+I'm a very passionate software developer and I enjoy architecting and creating solutions. I'm very big on quality and a strong advocate for clean and well written software that works. 
 I write software professionally and as a hubby. You would normally catch me in front of my computer banging out code or researching the next big thing in software development. My
-Pet projects have helped a lot in this regard. The software development life cycle is a good friend of mine and I love to see solutions get to fruition. I'm an avid learner and I 
+Pet projects have helped a lot in this regard. The software development life cycle is a good friend of mine and I love to see solutions come to fruition. I'm an avid learner and I 
 also love to share knowledge hence this blog.
 
 ### More Information
@@ -23,4 +23,4 @@ Keep in touch!
 
 ### Contact me
 
-[javicaria@ingenieros.com](mailto:javicaria@ingenieros.com)
+[oopanuga@gmail.com](mailto:oopanuga@gmail.com)
