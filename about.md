@@ -14,7 +14,3 @@ a good friend as I love to see solutions come to fruition. I'm an avid learner a
 Thanks for checking my blog out and happy coding :)
 
 ![Image description](/images/me.jpg)
-
-### Contact me
-
-[oopanuga@gmail.com](mailto:oopanuga@gmail.com)
